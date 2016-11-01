@@ -132,7 +132,7 @@
       <AdditionalIncludeDirectories>..\..\libraries\openexr\IlmImf;..\..\libraries\openexr\config.windows;..\..\libraries\ilmbase\Half;..\..\libraries\ilmbase\Iex;..\..\libraries\ilmbase\IlmThread;..\..\libraries\ilmbase\Imath;..\..\libraries\ilmbase\config.windows;..\..\libraries\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;WIN32_LEAN_AND_MEAN;_DEBUG;_WINDOWS;_HAS_ITERATOR_DEBUGGING=0;ILMIMF_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader>
