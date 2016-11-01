@@ -155,6 +155,10 @@ $RECYCLE.BIN/
 /windows/vs*/bin64/
 /windows/vs*/build/
 /windows/vs*/ipch/
+/windows/vs*/povclr/x64/
+/windows/vs*/x64/
+/windows/povclrtest/obj/
+/windows/povclrtest/bin/
 
 # ============================
 # POV-Ray Unix build artefacts
@@ -227,3 +231,4 @@ $RECYCLE.BIN/
 
 /tools/doxygen-warnings.log
 /tools/doxygen/source-doc/
+

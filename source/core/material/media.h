@@ -65,6 +65,9 @@ class MediaFunction : public Trace::MediaFunctor
         virtual void ComputeMedia(vector<Media>& mediasource, const Ray& ray, Intersection& isect, MathColour& colour, ColourChannel& transm);
         virtual void ComputeMedia(const RayInteriorVector& mediasource, const Ray& ray, Intersection& isect, MathColour& colour, ColourChannel& transm);
         virtual void ComputeMedia(MediaVector& medias, const Ray& ray, Intersection& isect, MathColour& colour, ColourChannel& transm);
+
+		void BindTrace(Trace* t) { trace = t; }
+
     protected:
         /// pseudo-random number sequence
         RandomDoubleSequence randomNumbers;
