@@ -155,8 +155,12 @@ $RECYCLE.BIN/
 /windows/vs*/bin64/
 /windows/vs*/build/
 /windows/vs*/ipch/
-/windows/vs*/povclr/x64/
-/windows/vs*/x64/
+/windows/vs10/x64/
+/windows/vs10/x64/Debug/
+/windows/vs10/povclr/x64/*/
+/windows/vs10/povclr/x64/*/*/
+/windows/vs10/povclr/x64/
+/windows/vs10/povclr/Debug/
 /windows/povclrtest/obj/
 /windows/povclrtest/bin/
 

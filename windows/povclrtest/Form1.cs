@@ -85,6 +85,7 @@ namespace povclrtest
             var scene = new Scene();
             scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
             scene.Add(new LightSource(new Vector3(0, 100, 0)));
+            scene.Add(new Sphere(new Vector3(0, 0, 0), 10));
 
             RenderCallback target = new RenderCallback();
             scene.Render(target);

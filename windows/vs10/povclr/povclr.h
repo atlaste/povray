@@ -5,6 +5,7 @@
 #include "povms/povmsid.h"
 #include "core/render/tracepixel.h"
 #include "core/scene/tracethreaddata.h"
+#include "core/shape/sphere.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -93,10 +94,19 @@ namespace povclr
 			sceneData->bspChildAccessCost = settings->BspChildAccessCost;
 			sceneData->bspMissChance = settings->BspMissChance;
 			sceneData->realTimeRaytracing = false;
+
+			// Defaults:
+			defaultTexture = pov::Create_Texture();
+			defaultTexture->Pigment = pov::Create_Pigment();
+			defaultTexture->Tnormal = NULL;
+			defaultTexture->Finish = pov::Create_Finish();
 		}
 
 		pov::SceneData* sceneData;
 		pov::Camera* camera;
+
+		// Defaults:
+		pov::TEXTURE* defaultTexture;
 
 		~Context()
 		{
@@ -115,6 +125,12 @@ namespace povclr
 			{
 				delete sceneData;
 				sceneData = nullptr;
+			}
+
+			if (defaultTexture)
+			{
+				pov::Destroy_Textures(defaultTexture);
+				defaultTexture = NULL;
 			}
 		}
 	};
@@ -139,8 +155,7 @@ namespace povclr
 	struct BSPProgressFunctor : public pov::BSPTree::Progress
 	{
 		virtual void operator()(unsigned int nodes) const
-		{
-		}
+		{}
 	};
 
 	struct BSPSceneObjects : public pov::BSPTree::Objects
@@ -183,8 +198,7 @@ namespace povclr
 		}
 
 		virtual ~BSPSceneObjects()
-		{
-		}
+		{}
 	};
 
 	public ref class Scene : public List<SceneObject^>
@@ -195,7 +209,7 @@ namespace povclr
 			pov::Initialize_Noise();
 			pov::InitializePatternGenerators();
 		}
-		
+
 		Scene()
 		{
 			Settings = gcnew povclr::Settings();
@@ -258,7 +272,7 @@ namespace povclr
 									  cooperate, media, radiosity);
 
 				media.BindTrace(&trace);
-				
+
 				// Render the image:
 				auto width = Settings->Width;
 				auto height = Settings->Height;
@@ -342,12 +356,288 @@ namespace povclr
 
 		Vector3^ Location;
 
-		virtual void Render(Context^ context) 
+		virtual void Render(Context^ context)
 		{
 			auto obj = new pov::LightSource();
 			obj->Center = Location->ToVector();
 
 			context->sceneData->lightSources.push_back(obj);
+		}
+	};
+
+	public ref class RGB
+	{
+	public:
+		RGB(double r, double g, double b) :
+			Red(r),
+			Green(g),
+			Blue(b)
+		{}
+
+		double Red;
+		double Green;
+		double Blue;
+	};
+
+	public ref class RGBFT : public RGB
+	{
+	internal:
+		void RenderDetail(pov::TransColour& dst)
+		{
+			pov::RGBFTColour tmp;
+			tmp.red() = Red;
+			tmp.green() = Green;
+			tmp.blue() = Blue;
+			tmp.filter() = Filter;
+			tmp.transm() = Transparency;
+			dst = ToTransColour(tmp);
+		}
+
+	public:
+		RGBFT(double r, double g, double b, double f, double t) :
+			RGB(r, g, b),
+			Filter(f),
+			Transparency(t)
+		{}
+
+		double Filter;
+		double Transparency;
+	};
+
+	public ref class Pigment // TODO FIXME : Pattern
+	{
+	internal:
+		void RenderDetail(Context^ context, pov::PIGMENT* pigment)
+		{
+			Color->RenderDetail(pigment->colour);
+		}
+
+	public:
+		Pigment(RGBFT ^color) :
+			Color(color)
+		{}
+
+		RGBFT ^Color;
+	};
+
+	public ref class Normal
+	{
+	public:
+		double Amount;
+		double Delta;
+	};
+
+	public ref class Finish
+	{
+	public:
+		double Diffuse;
+		double DiffuseBack;
+		double Brilliance;
+		double BrillianceOut;
+		double BrillianceAdjust;
+		double BrillianceAdjustRad;
+		double Specular;
+		double Roughness;
+		double Phong;
+		double PhongSize;
+		double Irid;
+		double IridFilmThickness;
+		double IridTurbulence;
+		double Crand;
+		double Metallic;
+		RGB ^Ambient;
+		RGB ^Emission;
+		RGB ^ReflectionMax;
+		RGB ^ReflectionMin;
+		RGB ^SubsurfaceTranslucency;
+		RGB ^SubsurfaceAnisotropy;
+		double ReflectionFalloff;
+		bool ReflectionFresnel;
+		bool Fresnel;
+		double ReflectMetallic;
+		int ConserveEnergy;
+		bool UseSubsurface;
+	};
+
+	public ref class Texture
+	{
+	internal:
+		void RenderDetail(Context^ context, pov::TEXTURE* texture)
+		{
+			if (Next != nullptr)
+			{
+				texture->Next = pov::Copy_Textures(context->defaultTexture);
+				Next->RenderDetail(context, texture->Next);
+			}
+
+			if (Pigment != nullptr)
+			{
+				if (texture->Pigment == nullptr)
+				{
+					texture->Pigment = pov::Copy_Pigment(context->defaultTexture->Pigment);
+				}
+				Pigment->RenderDetail(context, texture->Pigment);
+			}
+		}
+
+	public:
+		Texture ^Next;
+		Pigment ^Pigment;
+		Normal ^Tnormal;
+		Finish ^Finish;
+		List<Texture^> ^Materials; 
+	};
+
+	public ref class Interior
+	{
+	public:
+		bool Hollow = false;
+		double IOR;
+		double Dispersion;
+		double Caustics;
+		double FadeDistance;
+		double FadePower;
+		RGB ^FadeColour;
+		// TODO: vector<Media> media;
+		// TODO: shared_ptr<SubsurfaceInterior> subsurface;
+	};
+
+	public ref class Matrix
+	{
+	private:
+		array<double>^ data = gcnew array<double>(16);
+
+		void Set(int x, int y, double value)
+		{
+			data[y * 4 + x] = value;
+		}
+
+		double Get(int x, int y)
+		{
+			return data[y * 4 + x];
+		}
+
+	public:
+		Matrix()
+		{ 
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < 4; j++)
+				{
+					if (i == j)
+					{
+						Set(i, j, 1.0);
+					}
+					else
+					{
+						Set(i, j, 0.0);
+					}
+				}
+			}
+		}
+	};
+
+	public ref class Transformation
+	{
+	private:
+		Matrix ^Trans;
+		Matrix ^Inverse;
+
+	public:
+		Transformation()
+		{
+			Trans = gcnew Matrix();
+			Inverse = gcnew Matrix();
+		}
+	};
+
+	[Flags()]
+	public enum class CSGFlags : int
+	{
+		None                 = 0x00000000,
+		NoShadows            = 0x00000001, /* Object doesn't cast shadows            */
+		Closed               = 0x00000002, /* Object is closed                       */
+		Inverted             = 0x00000004, /* Object is inverted                     */
+		Smoothed             = 0x00000008, /* Object is smoothed                     */
+		Cylinder             = 0x00000010, /* Object is a cylinder                   */
+		Degenerate           = 0x00000020, /* Object is degenerate                   */
+		Sturm                = 0x00000040, /* Object should use sturmian root solver */
+		Opaque               = 0x00000080, /* Object is opaque                       */
+		MultiTexture         = 0x00000100, /* Object is multi-textured primitive     */
+		Infinite             = 0x00000200, /* Object is infinite                     */
+		Hierarchy            = 0x00000400, /* Object can have a bounding hierarchy   */
+		Hollow               = 0x00000800, /* Object is hollow (atmosphere inside)   */
+		HollowSet            = 0x00001000, /* Hollow explicitly set in scene file    */
+		UV                   = 0x00002000, /* Object uses UV mapping                 */
+		DoubleIlluminate     = 0x00004000, /* Illuminate both sides of the surface   */
+		NoImage              = 0x00008000, /* Object doesn't catch camera rays     [ENB 9/97] */
+		NoReflection         = 0x00010000, /* Object doesn't catch reflection rays [ENB 9/97] */
+		NoGlobalLights       = 0x00020000, /* Object doesn't receive light from global lights */
+		NoGlobalLightsExpl   = 0x00040000, /* Object doesn't receive light from global lights explicitly set in scene file */
+		PhotonsTarget        = 0x00080000, /* this object is a photons target */
+		PhotonsPassThrough   = 0x00100000, /* this is pass through object (i.e. it may let photons pass on their way to the target) */
+		PhotonsReflectOn     = 0x00200000, /* this object explicitly reflects photons */
+		PhotonsReflectOff    = 0x00400000, /* this object explicitly does not reflect photons */
+		PhotonsRefractOn     = 0x00800000, /* this object explicitly refracts photons */
+		PhotonsRefractOff    = 0x01000000, /* this object explicitly does not refract photons */
+		IgnorePhotons        = 0x02000000, /* this object does not collect photons */
+		IgnoreRadiosity      = 0x04000000, /* Object doesn't receive ambient light from radiosity */
+		NoRadiosity          = 0x08000000, /* Object doesn't catch radiosity rays (i.e. is invisible to radiosity) */
+		CutawayTextures      = 0x10000000  /* Object (or any of its parents) has cutaway_textures set */
+	};
+
+	public ref class CSGObject abstract : public SceneObject
+	{
+	internal:
+		void RenderDetail(Context^ context, pov::ObjectBase* obj)
+		{
+			if (Surface)
+			{
+				obj->Texture = pov::Copy_Textures(context->defaultTexture);
+				Surface->RenderDetail(context, obj->Texture);
+			}
+		}
+
+	public:
+		Texture ^Surface;
+		Interior ^Interior;
+		Texture ^InteriorTexture;
+		Transformation ^Transform;
+		double PhotonDensity;
+		double RadiosityImportance;
+		CSGFlags ^Flags;
+
+		CSGObject() :
+			Surface(nullptr),
+			Interior(nullptr),
+			InteriorTexture(nullptr),
+			Transform(nullptr),
+			PhotonDensity(0),
+			RadiosityImportance(0),
+			Flags(CSGFlags::None)
+		{}
+
+		virtual void Render(Context^ context) = 0;
+	};
+
+	public ref class Sphere : CSGObject
+	{
+	public:
+		Vector3 ^Center;
+		double Radius;
+
+		Sphere(Vector3 ^center, double radius) :
+			Center(center),
+			Radius(radius)
+		{}
+
+		virtual void Render(Context^ context) override
+		{
+			auto obj = new pov::Sphere();
+			obj->Center = Center->ToVector();
+			obj->Radius = Radius;
+
+			context->sceneData->objects.push_back(obj);
 		}
 	};
 }
