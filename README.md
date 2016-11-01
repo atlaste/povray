@@ -1,28 +1,43 @@
 [POV-Ray](http://www.povray.org/) - The Persistence of Vision Raytracer
 =======================================================================
 
-This document is a WIP
+What this branch is all about...
 --------------------------------------
 
-This document is still a work in progress. While the POV-Ray project itself
-has existed for more than 20 years, this is the first time we have done a
-release on github, so please bear with us - it's a little bare at the moment.
+I love Pov-Ray, I absolutely do. But... I don't particularly love the .pov language. That is, it's an interpreted (and therefore inherently slow)
+language, it doesn't support things like for loops, classes and so on (only the preprocessor declare's and while's)... the list just continues and 
+continues. Sure, pov has great value for simple scenes, but as soon as you make things complex, your includes and pov code will become a hell.
 
-Last edit: 2016-10-09
+Evidenced by the fact that I've already had dozens of tools in my hands that generate trees, do collision detection, physics stuff, ... I 
+assume that I'm not the only one who has this problem.
 
-Build Status
+I think this is a shame for an otherwise fantastic piece of machinery that I've used for so many years. 
+
+This feature introduces a solution to this problem. It talks directly to the POV Core library and does all the plumbing required to generate 
+a scene. The only thing you have to do is add objects in C#. 
+
+Like this:
+
+    var settings = new Settings();
+    var scene = new Scene();
+    scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
+    scene.Add(new LightSource(new Vector3(0, 100, 0)));
+
+    RenderCallback target = new RenderCallback();
+    scene.Render(target);
+
+    // Do something with your rendered image which is now in 'target.Image'
+
+
+This project is a WIP
 --------------------------------------
 
-We're constantly monitoring the code quality of (almost) all branches and pull requests,
-to make sure the code builds ok on our major target platforms. The current status of
-our _master branch_ is reported as follows:
+This document is still a work in progress. The POV-Ray project itself
+has existed for more than 20 years and is loaded with tons of features. Having 
+support for all of the stuff in POV-Ray takes time... so please bear with us - 
+it's a little bare at the moment.
 
-  - [![Build status](https://ci.appveyor.com/api/projects/status/5953wf13f9soyw23/branch/master?svg=true)](https://ci.appveyor.com/project/c-lipka/povray-exwy4)
-    (AppVeyor: Windows Server 2012 with Visual Studio 2015)
-  - [![Build Status](https://semaphoreci.com/api/v1/pov-ray/povray/branches/master/shields_badge.svg)](https://semaphoreci.com/pov-ray/povray)
-    (Semaphore: Ubuntu 14.04 LTE 64-bit with gcc 4.8)
-  - [![Build Status](https://travis-ci.org/POV-Ray/povray.svg?branch=master)](https://travis-ci.org/POV-Ray/povray)
-    (Travis CI: Ubuntu 12.04 LTE 64-bit with gcc 4.6 and with clang 4.2; OS X 10.11 with gcc 4.2 and with clang 4.2)
+Last edit: 2016-11-01
 
 License
 --------------------------------------
@@ -32,86 +47,20 @@ Creative Commons Attribution-Noncommercial-ShareAlike 2.5 license, and support f
 as SDL includes, macros, sample scenes and so forth are under the Creative Commons Attribution-ShareAlike
 3.0 Unported License (see each file header for the specific one).
 
-Forums
+The povclr project is licensed under the same license, AGPL3. By doing this, we hope that the 
+feature will some day be included in POV-Ray.
+
+Building this extension
 --------------------------------------
 
-Discussion regarding POV-Ray is traditionally done via our forums at http://news.povray.org/.
-These are also available via NNTP at news://news.povray.org/ for those preferring that.
+You need Visual Studio 2015, Community Edition will do just fine. Open the solution in 
+Windows/vs10/povray.sln, build, run. Done.
 
-Please note that the POV-Ray developers do not monitor all forums regularly. The ones we
-tend to check most frequently are povray.general, povray.windows and povray.unix.
-
-Bug Reports
+API Documentation
 --------------------------------------
 
-It's generally a good idea to mention a bug in the forums prior to lodging a formal
-report; this can save you some time if it's a non-bug or a solution is known. You
-should also first check the [known issues](https://github.com/POV-Ray/povray/issues)
-to see if it has been reported already.
-
-If you're sure something is a bug then please do lodge a bug report on the GitHub issues tracker.
-
-Official Binaries
---------------------------------------
-
-At this point in time, the only platform for which the project distributes pre-built
-'official' (i.e. supported) binaries is Microsoft Windows. These may be
-obtained via http://www.povray.org/download/. We do intend to provide Mac OS X
-binaries shortly, but these will be console-mode only (based on the unix build).
-
-Building POV-Ray
---------------------------------------
-
-At this point in time we generally recommend building from the latest version of the
-[3.7-stable branch](https://github.com/POV-Ray/povray/tree/3.7-stable). Alternatively,
-you may want to opt for a recent [tagged version](https://github.com/POV-Ray/povray/tags)
-to test-drive features that have been added since the last stable release.
-
-_Please do not build directly from the master branch_ (or any other non-stable branch
-for that matter), as versions from that branch may report ambiguous version numbers,
-making it difficult to obtain version-specific support or report bugs in a useful manner.
-
-POV-Ray should compile on any POSIX-compliant system with the required tools (please see
-[unix/README.md](unix/README.md) for build instructions),
-on Microsoft Windows systems that have Visual Studio 2010 or later installed (targeting
-XP or later, both 32 and 64-bit - be sure to see README.HTML in the windows source dir,
-otherwise your build _will not work_), and also on Mac systems (console mode only, using
-an appropriately-modified version of the unix build - not currently provided by us).
-
-If you are using an operating system with a package or ports system such as
-Ubuntu or FreeBSD, you may like to check whether or not POV-Ray 3.7 is available
-via that route.
-
-IDE versions
---------------------------------------
-
-Currently the only version of POV-Ray with an IDE as such is the Windows build.
-We do want to change that, though. With the release of POV-Ray 3.7 we have added
-a clear split between the backend (renderer) and frontend (UI or console), along
-with a C++ layer which abstracts this into a fairly easily-understood set of 
-classes (VFE, aka 'Virtual Front End').
-
-We will offer support to those wishing to use this interface layer to integrate
-POV-Ray into an open-source cross-platform IDE. We would also be interested in
-hearing suggestions as to what we could base such an IDE on, should we go ahead
-to integrate it ourselves.
-
-Putting it another way: we consider getting a cross-platform IDE a high priority.
-
-3D Modeller
--------------------------------------
-
-POV-Ray does not currently have its own 3d modelling application (at least, not one
-in a usable state). We do own the rights to the Moray modeller, which was formerly
-commercial, but it needs a little work to get it working with v3.7. It is also
-Windows only (due to its use of MFC). Nevertheless we will be adding the source
-to the repository at a future date.
-
-Authors of open-source modellers with a compatible licence wishing to directly
-integrate POV-Ray are welcome to contact us for support in doing so.
-
-Documentation
---------------------------------------
+The API for this extension will closely follow the POV-Ray documentation. The only 
+namespace you ever need is the 'povclr' namespace.
 
 When built and installed via the means provided in the source tree, all versions
 of POV-Ray come with documentation. For the Unix build, this is in the form of a
@@ -121,12 +70,3 @@ version, there is a HtmlHelp (.CHM) file provided.
 The official location for the online documentation is http://www.povray.org/documentation/,
 however please be aware that at the time of writing this still has the version 3.6 docs.
 This will be updated shortly.
-
-Contacting Us
---------------------------------------
-
-We prefer that you contact us via the forums mentioned at the head of this document.
-If the matter is one that requires direct email contact (and this generally will NOT
-include tech support requests, though exceptions are made for package maintainers)
-you may use the address listed at the bottom of http://www.povray.org/povlegal.html.
-
