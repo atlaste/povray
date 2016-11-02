@@ -36,7 +36,7 @@ Like this:
 
 You'll end up with something like this:
 
-[[https://github.com/atlaste/povray/Example.png|alt=Example]]
+[[https://raw.githubusercontent.com/atlaste/povray/feature/cppcli/Example.png]]
 
 Since ray-tracing can take quite some time, async ray-tracing (with a status bar) is also included in the example code.
 
