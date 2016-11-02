@@ -19,6 +19,20 @@ namespace povclr
 		pov::Vector3d ToVector() { return pov::Vector3d(X, Y, Z); }
 	};
 
+	public ref class Vector2
+	{
+	public:
+		Vector2(double x, double y) :
+			X(x), Y(y)
+		{}
+
+		double X;
+		double Y;
+
+	internal:
+		pov::Vector2d ToVector() { return pov::Vector2d(X, Y); }
+	};
+
 	public ref class Matrix
 	{
 	private:

@@ -6,7 +6,17 @@
 
 #include "Camera.h"
 #include "LightSource.h"
+
+#include "Box.h"
+#include "Cone.h"
+#include "Disc.h"
+#include "Lemon.h"
+#include "Ovus.h"
+#include "Plane.h"
+#include "Quadric.h"
 #include "Sphere.h"
+#include "SuperEllipsoid.h"
+#include "Torus.h"
 
 #include "Color.h"
 #include "Math.h"

@@ -8,11 +8,11 @@
     <Filter Include="Model">
       <UniqueIdentifier>{bc8a7c5c-fc26-4643-bc6e-7df7a18ecad8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Model\Objects">
-      <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Model\Material">
       <UniqueIdentifier>{fd8186d2-fab2-477a-a5e0-14c6fb6fdb9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Shape">
+      <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -24,20 +24,8 @@
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Color.h" />
-    <ClInclude Include="Camera.h">
-      <Filter>Model\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="CSGObject.h">
-      <Filter>Model\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="LightSource.h">
-      <Filter>Model\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneObject.h">
-      <Filter>Model\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Sphere.h">
-      <Filter>Model\Objects</Filter>
+      <Filter>Model\Shape</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
       <Filter>Model\Material</Filter>
@@ -54,6 +42,51 @@
     <ClInclude Include="Finish.h">
       <Filter>Model\Material</Filter>
     </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="CSGObject.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="LightSource.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Cone.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Disc.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Lemon.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Ovus.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Quadric.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperEllipsoid.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Union.h">
+      <Filter>Model\Shape</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -63,16 +96,19 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="povclr.cpp" />
     <ClCompile Include="Camera.cpp">
-      <Filter>Model\Objects</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="CSGObject.cpp">
-      <Filter>Model\Objects</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="LightSource.cpp">
-      <Filter>Model\Objects</Filter>
+      <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="SceneObject.cpp">
-      <Filter>Model\Objects</Filter>
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Lemon.cpp">
+      <Filter>Model\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -162,16 +162,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Cone.h" />
     <ClInclude Include="Context.h" />
     <ClInclude Include="CSGObject.h" />
+    <ClInclude Include="Disc.h" />
     <ClInclude Include="Finish.h" />
     <ClInclude Include="Interior.h" />
+    <ClInclude Include="Lemon.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Normal.h" />
+    <ClInclude Include="Ovus.h" />
     <ClInclude Include="Pigment.h" />
+    <ClInclude Include="Plane.h" />
+    <ClInclude Include="Quadric.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
@@ -179,12 +186,17 @@
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="SuperEllipsoid.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Torus.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Union.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CSGObject.cpp" />
+    <ClCompile Include="Lemon.cpp" />
     <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="povclr.cpp" />
     <ClCompile Include="msgSupport.cpp" />

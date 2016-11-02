@@ -5,29 +5,31 @@
 #include "CSGObject.h"
 #include "Math.h"
 
-#include "core/shape/sphere.h"
+#include "core/shape/superellipsoid.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
 
 namespace povclr
 {
-	public ref class Sphere : CSGObject
+	public ref class SuperEllipsoid : CSGObject
 	{
 	public:
-		Vector3 ^Center;
-		double Radius;
+		Vector2 ^Power;
 
-		Sphere(Vector3 ^center, double radius) :
-			Center(center),
-			Radius(radius)
+		SuperEllipsoid(Vector2 ^power) :
+			Power(power)
 		{}
 
 		virtual void Render(Context^ context) override
 		{
-			auto obj = new pov::Sphere();
-			obj->Center = Center->ToVector();
-			obj->Radius = Radius;
+			auto obj = new pov::Superellipsoid();
+
+			auto v1 = Power->ToVector();
+
+			obj->Power[0] = 2.0 / v1[0];
+			obj->Power[1] = v1[0] / v1[1];
+			obj->Power[2] = 2.0 / v1[1];
 
 			obj->Compute_BBox();
 

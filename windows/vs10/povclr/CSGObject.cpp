@@ -5,9 +5,6 @@ namespace povclr
 {
 	void CSGObject::RenderDetail(Context^ context, pov::ObjectBase* obj)
 	{
-		// Bounding box first:
-		obj->Compute_BBox();
-
 		// Add the properties and flags to the object:
 
 		// parser.cpp:7626 and further contains the original code:

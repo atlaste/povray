@@ -5,29 +5,29 @@
 #include "CSGObject.h"
 #include "Math.h"
 
-#include "core/shape/sphere.h"
+#include "core/shape/box.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
 
 namespace povclr
 {
-	public ref class Sphere : CSGObject
+	public ref class Box : CSGObject
 	{
 	public:
-		Vector3 ^Center;
-		double Radius;
+		Vector3 ^TopLeft;
+		Vector3 ^BottomRight;
 
-		Sphere(Vector3 ^center, double radius) :
-			Center(center),
-			Radius(radius)
+		Box(Vector3 ^topLeft, Vector3 ^bottomRight) :
+			TopLeft(topLeft),
+			BottomRight(bottomRight)
 		{}
 
 		virtual void Render(Context^ context) override
 		{
-			auto obj = new pov::Sphere();
-			obj->Center = Center->ToVector();
-			obj->Radius = Radius;
+			auto obj = new pov::Box();
+			obj->bounds[0] = TopLeft->ToVector();
+			obj->bounds[1] = BottomRight->ToVector();
 
 			obj->Compute_BBox();
 
