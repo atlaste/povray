@@ -81,10 +81,6 @@ as SDL includes, macros, sample scenes and so forth are under the Creative Commo
 The povclr project is licensed under the same license, AGPL3. By doing this, we hope that the 
 feature will some day be included in POV-Ray.
 
-Building this extension
---------------------------------------
-
-
 API Documentation
 --------------------------------------
 
