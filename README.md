@@ -18,26 +18,57 @@ a scene. The only thing you have to do is add objects in C#.
 
 Like this:
 
-    var settings = new Settings();
-    var scene = new Scene();
+    var settings = new Settings(renderResult.Width, renderResult.Height);
+    var scene = new Scene(settings);
     scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
-    scene.Add(new LightSource(new Vector3(0, 100, 0)));
+    scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)));
+    scene.Add(new Sphere(new Vector3(0, 0, 0), 10)
+    {
+        Surface = new Texture() { Pigment = new Pigment(new RGBFT(1, 0, 0)) }
+    });
 
-    RenderCallback target = new RenderCallback();
-    scene.Render(target);
+	using (RenderCallback target = new RenderCallback())
+    {
+        scene.Render(target);
 
-    // Do something with your rendered image which is now in 'target.Image'
+        // Do something with your rendered image which is now in 'target.Image'
+    }
 
+You'll end up with something like this:
+
+[[https://github.com/atlaste/povray/Example.png|alt=Example]]
+
+Since ray-tracing can take quite some time, async ray-tracing (with a status bar) is also included in the example code.
+
+Getting started
+--------------------------------------
+
+You need Visual Studio 2015, Community Edition will do just fine. Open the solution in 
+Windows/vs10/povray.sln; select "Debug / x64" as configution and build.
+
+The project "povclrtest" contains the example code you need to get started.
 
 This project is a WIP
 --------------------------------------
 
 This document is still a work in progress. The POV-Ray project itself
 has existed for more than 20 years and is loaded with tons of features. Having 
-support for all of the stuff in POV-Ray takes time... so please bear with us - 
-it's a little bare at the moment.
+support for all of the stuff in POV-Ray takes time... so please bear with us, it might
+take some time.
 
-Last edit: 2016-11-01
+It's worth noting that the library only uses the POV-Ray core and base libraries. 
+We didn't want a dependency on the parser, message queue and all the other boilerplate 
+code, so when this was developed, the boilerplate was ignored. Unfortunately a *lot* of 
+logic is still in that code, even though it doesn't belong there. Migrating everything 
+to the proper place, while carefully crafting around legacy features, is what costs the 
+majority of the effort. 
+
+This also means that multi-threading and AA are currently not supported; these are solved
+in the frontend/backend/parser code of the 'normal' POV-Ray project. However, because of the 
+way this is designed, it's fairly trivial to add at a later stage; the main idea here is to 
+simply use Parallel.ForEach to do the majority of the work.
+
+Last edit: 2016-11-02
 
 License
 --------------------------------------
@@ -53,8 +84,6 @@ feature will some day be included in POV-Ray.
 Building this extension
 --------------------------------------
 
-You need Visual Studio 2015, Community Edition will do just fine. Open the solution in 
-Windows/vs10/povray.sln, build, run. Done.
 
 API Documentation
 --------------------------------------

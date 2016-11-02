@@ -1,45 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{bc8a7c5c-fc26-4643-bc6e-7df7a18ecad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Objects">
+      <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Material">
+      <UniqueIdentifier>{fd8186d2-fab2-477a-a5e0-14c6fb6fdb9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="povclr.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="Settings.h" />
+    <ClInclude Include="Context.h" />
+    <ClInclude Include="Scene.h" />
+    <ClInclude Include="RenderTarget.h" />
+    <ClInclude Include="Math.h" />
+    <ClInclude Include="Color.h" />
+    <ClInclude Include="Camera.h">
+      <Filter>Model\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="Stdafx.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="CSGObject.h">
+      <Filter>Model\Objects</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="LightSource.h">
+      <Filter>Model\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Model\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Model\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Interior.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Pigment.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Normal.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Finish.h">
+      <Filter>Model\Material</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="povclr.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="msgSupport.cpp" />
+    <ClCompile Include="pvmem.cpp" />
+    <ClCompile Include="Stdafx.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="povclr.cpp" />
+    <ClCompile Include="Camera.cpp">
+      <Filter>Model\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="AssemblyInfo.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="CSGObject.cpp">
+      <Filter>Model\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="Stdafx.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="LightSource.cpp">
+      <Filter>Model\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="pvmem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="msgSupport.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SceneObject.cpp">
+      <Filter>Model\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
