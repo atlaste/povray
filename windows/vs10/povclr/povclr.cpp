@@ -28,6 +28,11 @@
 #include "Boxed.h"
 #include "Bozo.h"
 #include "Brick.h"
+#include "Bumps.h"
+#include "Cells.h"
+#include "Checker.h"
+#include "Crackle.h"
+#include "Cubic.h"
 
 #include "ColorMap.h"
 #include "PlainPattern.h"

@@ -2,8 +2,9 @@
 
 #include "Context.h"
 #include "Pattern.h"
+#include "Texture.h"
 #include "ColorMap.h"
-#include "Pigment.h"
+#include "BlendMapBase.h"
 
 #include "core/material/texture.h"
 #include "core/material/pigment.h"
@@ -12,16 +13,12 @@
 
 namespace povclr
 {
-	ref class Pigment;
-
-	public ref class PlainPattern : public Pattern, public ITargetType<Pigment^>
+	public ref class Cubic : public Pattern, public ITargetType<Texture^>
 	{
 	internal:
 		virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
 		{
-			pigment->Type = pov::PLAIN_PATTERN;
-			pigment->pattern = pov::PatternPtr(new pov::PlainPattern());
-			Color->RenderDetail(pigment->colour);
+			throw gcnew NotSupportedException();
 		}
 		virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
 		{
@@ -29,15 +26,21 @@ namespace povclr
 		}
 		virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override
 		{
-			throw gcnew NotSupportedException();
+			texture->Type = pov::GENERIC_INTEGER_PATTERN;
+			texture->pattern = pov::PatternPtr(new pov::CubicPattern());
+			texture->Blend_Map = BlendMapBase::CreateBlendMap<pov::TextureBlendMap>(context, pov::kBlendMapType_Texture, Items);
 		}
 
-
 	public:
-		PlainPattern(RGBFT^ color) :
-			Color(color)
-		{}
+		Cubic(array<Texture^>^ items) :
+			Items(items)
+		{
+			if (Items->Length != 6)
+			{
+				throw gcnew ArgumentException("Number of faces of a cubic must be 6.");
+			}
+		}
 
-		RGBFT^ Color;
+		array<Texture^>^ Items;
 	};
 }

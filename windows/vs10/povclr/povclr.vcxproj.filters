@@ -161,6 +161,21 @@
     <ClInclude Include="BlendMapBase.h">
       <Filter>Model\Material\Patterns</Filter>
     </ClInclude>
+    <ClInclude Include="Bumps.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Cells.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Checker.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Crackle.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Cubic.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
