@@ -8,6 +8,12 @@
 
 #include "core/material/blendmap.h"
 
+// TODO: Due to the gcroot solution that's used here (we cannot mix templates and generics...), I also had to use 
+// MoveNext and Current. It's not ideal, especially not since Dispose is currently not called. The best way this is probably
+// solved is to wrap it in an auto_gcroot, which calls the d'tor when the enumerator goes out of scope. Note that this solution
+// will work fine: it's very unlikely that the enumerator will need a dispose call anyways, and 'delete e' calls it explicitly,
+// so the only case when stuff will go wrong is when an exception occurs halfway in the process.
+
 namespace povclr
 {
 	template <>
@@ -28,6 +34,7 @@ namespace povclr
 
 			result.push_back(std::move(item));
 		}
+		delete e;
 		
 		auto blendmap = pov::Create_Blend_Map<pov::ColourBlendMap>(type);
 		blendmap->Set(result);
@@ -51,6 +58,7 @@ namespace povclr
 
 			result.push_back(std::move(item));
 		}
+		delete e;
 		
 		auto blendmap = pov::Create_Blend_Map<pov::PigmentBlendMap>(type);
 		blendmap->Set(result);
@@ -80,6 +88,7 @@ namespace povclr
 
 			result.push_back(std::move(item));
 		}
+		delete e;
 
 		auto blendmap = pov::Create_Blend_Map<pov::NormalBlendMap>(type);
 		blendmap->Set(result);
@@ -103,6 +112,7 @@ namespace povclr
 
 			result.push_back(std::move(item));
 		}
+		delete e;
 
 		auto blendmap = pov::Create_Blend_Map<pov::TextureBlendMap>(type);
 		blendmap->Set(result);
