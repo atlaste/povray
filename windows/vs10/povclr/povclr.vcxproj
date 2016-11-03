@@ -164,7 +164,11 @@
   <ItemGroup>
     <ClInclude Include="Agate.h" />
     <ClInclude Include="Ambient.h" />
+    <ClInclude Include="BlendMapBase.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="Boxed.h" />
+    <ClInclude Include="Bozo.h" />
+    <ClInclude Include="Brick.h" />
     <ClInclude Include="Brilliance.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
@@ -179,6 +183,7 @@
     <ClInclude Include="Emission.h" />
     <ClInclude Include="Finish.h" />
     <ClInclude Include="FinishBuilder.h" />
+    <ClInclude Include="IMapType.h" />
     <ClInclude Include="Interior.h" />
     <ClInclude Include="Irid.h" />
     <ClInclude Include="Lemon.h" />
@@ -190,6 +195,7 @@
     <ClInclude Include="Pattern.h" />
     <ClInclude Include="Phong.h" />
     <ClInclude Include="Pigment.h" />
+    <ClInclude Include="PlainPattern.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Quadric.h" />
     <ClInclude Include="Reflection.h" />
@@ -212,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="BlendMapBase.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ColorMap.cpp" />
     <ClCompile Include="CSGObject.cpp" />

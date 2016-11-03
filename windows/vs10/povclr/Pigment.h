@@ -4,43 +4,31 @@
 #include "Pigment.h"
 #include "Color.h"
 #include "Pattern.h"
+#include "IMapType.h"
+#include "PlainPattern.h"
 
 #include "core/material/pigment.h"
 #include "core/material/pattern.h"
 
 namespace povclr
 {
-	public ref class Pigment : Pattern
+	public ref class Pigment : public IMapType
 	{
 	internal:
-		void RenderDetail(Context^ context, pov::PIGMENT* pigment)
+		void Render(Context^ context, pov::PIGMENT* pigment)
 		{
-			// Piece of code from parse_materials.cpp:1009 -> Parse_Pattern(...) - the plain color case.
-			pigment->Type = pov::PLAIN_PATTERN;
-			pigment->pattern = pov::PatternPtr(new pov::PlainPattern());
-			Color->RenderDetail(pigment->colour);
-		}
-
-		virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
-		{
-			RenderDetail(context, pigment);
-		}
-
-		virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
-		{
-			throw gcnew NotSupportedException();
-		}
-
-		virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override 
-		{
-			throw gcnew NotSupportedException();
+			Pattern->RenderPigmentBlendMap(context, pigment);
 		}
 
 	public:
 		Pigment(RGBFT ^color) :
-			Color(color)
+			Pattern(gcnew PlainPattern(color))
 		{}
 
-		RGBFT ^Color;
+		Pigment(ITargetType<Pigment^> ^pattern) :
+			Pattern((povclr::Pattern^) pattern)
+		{}
+
+		Pattern^ Pattern;
 	};
 }

@@ -145,6 +145,22 @@
     <ClInclude Include="ColorMap.h">
       <Filter>Model\Material\Patterns</Filter>
     </ClInclude>
+    <ClInclude Include="Boxed.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Bozo.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Brick.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="PlainPattern.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="IMapType.h" />
+    <ClInclude Include="BlendMapBase.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -172,6 +188,9 @@
       <Filter>Model\Material</Filter>
     </ClCompile>
     <ClCompile Include="ColorMap.cpp">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="BlendMapBase.cpp">
       <Filter>Model\Material\Patterns</Filter>
     </ClCompile>
   </ItemGroup>

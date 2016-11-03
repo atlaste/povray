@@ -1,5 +1,7 @@
 #pragma once
 
+#include "IMapType.h"
+
 namespace povclr
 {
 	public ref class RGB
@@ -26,7 +28,7 @@ namespace povclr
 		double Blue;
 	};
 
-	public ref class RGBFT : public RGB
+	public ref class RGBFT : public RGB, public IMapType
 	{
 	internal:
 		void RenderDetail(pov::TransColour& dst)

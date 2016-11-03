@@ -25,3 +25,9 @@
 #include "Context.h"
 
 #include "Agate.h"
+#include "Boxed.h"
+#include "Bozo.h"
+#include "Brick.h"
+
+#include "ColorMap.h"
+#include "PlainPattern.h"

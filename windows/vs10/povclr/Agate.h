@@ -3,6 +3,10 @@
 #include "Context.h"
 #include "Pattern.h"
 #include "ColorMap.h"
+#include "IMapType.h"
+#include "Pigment.h"
+#include "Normal.h"
+#include "Texture.h"
 
 #include "core/material/texture.h"
 #include "core/material/pigment.h"
@@ -11,7 +15,7 @@
 
 namespace povclr
 {
-	public ref class Agate : public Pattern
+	public ref class Agate : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
 	{
 	internal:
 		template <typename MapType, typename PatternType>

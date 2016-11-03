@@ -202,11 +202,12 @@ namespace povclrtest
                 {
                     Surface = new Texture()
                     {
-                        Pigment = new Agate(
-                            0.5,
-                            new povclr.ColorMap(
-                                new ColorMapEntry(0.0, new RGBFT(0, 0, 0)),
-                                new ColorMapEntry(0.3, new RGBFT(1, 0.5, 1))))
+                        Pigment = new Pigment(
+                            new Agate(
+                                0.5,
+                                new povclr.ColorMap(
+                                    new ColorMapEntry(0.0, new RGBFT(0, 0, 0)),
+                                    new ColorMapEntry(0.3, new RGBFT(1, 0.5, 1)))))
                     }
                 }.
                 Rotate(2,60,124).

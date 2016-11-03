@@ -11,7 +11,7 @@
 
 namespace povclr
 {
-	public ref class Texture
+	public ref class Texture : public IMapType
 	{
 	internal:
 		void RenderDetail(Context^ context, pov::TEXTURE* texture)
@@ -29,7 +29,7 @@ namespace povclr
 					texture->Pigment = pov::Copy_Pigment(context->defaultTexture->Pigment);
 				}
 
-				Pigment->RenderPigmentBlendMap(context, texture->Pigment);
+				Pigment->Render(context, texture->Pigment);
 			}
 			
 			// TODO FIXME: TNormal is also a pattern
@@ -54,7 +54,7 @@ namespace povclr
 		{}
 
 		Texture ^Next;
-		Pattern ^Pigment;
+		Pigment ^Pigment;
 		Normal ^TNormal;
 
 		property FinishBuilder ^Finish
