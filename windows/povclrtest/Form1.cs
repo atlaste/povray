@@ -136,7 +136,7 @@ namespace povclrtest
             {
                 Thread.MemoryBarrier();
                 var tmp = callback;
-                if (tmp == null) { return 100.0; } 
+                if (tmp == null) { return 100.0; }
                 else if (tmp.NumberPixels == 0) { return 0; }
                 else { return 100.0 * (double)tmp.PixelsProcessed / (double)tmp.NumberPixels; }
             }
@@ -197,11 +197,21 @@ namespace povclrtest
                 var scene = new Scene(settings);
                 scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
                 scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)));
-                scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)).Rotate(0,0,90));
+                scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)).Rotate(0, 0, 90));
                 scene.Add(new Sphere(new Vector3(0, 0, 0), 10)
                 {
-                    Surface = new Texture() { Pigment = new Pigment(new RGBFT(1, 0, 0)) }
-                }.Translate(0,10,0).Scale(2));
+                    Surface = new Texture()
+                    {
+                        Pigment = new Agate(
+                            0.5,
+                            new povclr.ColorMap(
+                                new ColorMapEntry(0.0, new RGBFT(0, 0, 0)),
+                                new ColorMapEntry(0.3, new RGBFT(1, 0.5, 1))))
+                    }
+                }.
+                Rotate(2,60,124).
+                Translate(0, 10, 0).
+                Scale(2));
 
                 renderer = new ASyncRendering(scene);
                 renderer.Render();

@@ -14,6 +14,12 @@
     <Filter Include="Model\Shape">
       <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Model\Material\Finishes">
+      <UniqueIdentifier>{bafafcd4-4f4c-488d-9299-87e08711b032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Material\Patterns">
+      <UniqueIdentifier>{6d948aa5-82f0-4c5f-b9a9-32ab89128b72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -88,6 +94,57 @@
       <Filter>Model\Shape</Filter>
     </ClInclude>
     <ClInclude Include="Transformation.h" />
+    <ClInclude Include="Ambient.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Diffuse.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Emission.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Brilliance.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Phong.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Specular.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Roughness.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Metallic.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflection.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Crand.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="ConserveEnergy.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="SubSurface.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="Irid.h">
+      <Filter>Model\Material\Finishes</Filter>
+    </ClInclude>
+    <ClInclude Include="FinishBuilder.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="Agate.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Pattern.h">
+      <Filter>Model\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorMap.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -110,6 +167,12 @@
     </ClCompile>
     <ClCompile Include="Lemon.cpp">
       <Filter>Model\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="FinishBuilder.cpp">
+      <Filter>Model\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorMap.cpp">
+      <Filter>Model\Material\Patterns</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -23,3 +23,5 @@
 #include "RenderTarget.h"
 #include "Scene.h"
 #include "Context.h"
+
+#include "Agate.h"

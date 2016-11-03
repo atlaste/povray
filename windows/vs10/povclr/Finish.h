@@ -4,35 +4,22 @@
 
 namespace povclr
 {
-	public ref class Finish
+	[Flags()]
+	enum class FinishAdjustments
 	{
+		None = 0x0000,
+		DiffuseAdjust = 0x0001,
+		PhongAdjust = 0x0002,
+		SpecularAdjust = 0x0004,
+		AmbientSet = 0x0008,
+		EmissionSet = 0x0010
+	};
+
+	public ref class Finish abstract
+	{
+	internal:
+		virtual FinishAdjustments Render(pov::Finish_Struct* texture) = 0;
 	public:
-		double Diffuse;
-		double DiffuseBack;
-		double Brilliance;
-		double BrillianceOut;
-		double BrillianceAdjust;
-		double BrillianceAdjustRad;
-		double Specular;
-		double Roughness;
-		double Phong;
-		double PhongSize;
-		double Irid;
-		double IridFilmThickness;
-		double IridTurbulence;
-		double Crand;
-		double Metallic;
-		RGB ^Ambient;
-		RGB ^Emission;
-		RGB ^ReflectionMax;
-		RGB ^ReflectionMin;
-		RGB ^SubsurfaceTranslucency;
-		RGB ^SubsurfaceAnisotropy;
-		double ReflectionFalloff;
-		bool ReflectionFresnel;
-		bool Fresnel;
-		double ReflectMetallic;
-		int ConserveEnergy;
-		bool UseSubsurface;
+		Finish() {}
 	};
 }

@@ -4,6 +4,7 @@
 #include "Pigment.h"
 #include "Normal.h"
 #include "Finish.h"
+#include "FinishBuilder.h"
 
 #include "core/material/texture.h"
 #include "core/material/pigment.h"
@@ -27,15 +28,44 @@ namespace povclr
 				{
 					texture->Pigment = pov::Copy_Pigment(context->defaultTexture->Pigment);
 				}
-				Pigment->RenderDetail(context, texture->Pigment);
+
+				Pigment->RenderPigmentBlendMap(context, texture->Pigment);
+			}
+			
+			// TODO FIXME: TNormal is also a pattern
+			// TODO FIXME: Next?
+			// TODO FIXME: Materials
+
+			// Apply finish:
+			if (finish != nullptr)
+			{
+				for each (povclr::Finish^ fin in finish)
+				{
+					fin->Render(texture->Finish);
+				}
 			}
 		}
 
+		FinishBuilder^ finish;
+
 	public:
+		Texture() :
+			finish(nullptr)
+		{}
+
 		Texture ^Next;
-		Pigment ^Pigment;
-		Normal ^Tnormal;
-		Finish ^Finish;
+		Pattern ^Pigment;
+		Normal ^TNormal;
+
+		property FinishBuilder ^Finish
+		{
+			FinishBuilder ^get()
+			{
+				if (finish == nullptr) { finish = gcnew FinishBuilder(); }
+				return finish;
+			}
+		}
+
 		List<Texture^> ^Materials;
 	};
 }

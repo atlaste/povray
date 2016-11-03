@@ -162,30 +162,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Agate.h" />
+    <ClInclude Include="Ambient.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="Brilliance.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="ColorMap.h" />
     <ClInclude Include="Cone.h" />
+    <ClInclude Include="ConserveEnergy.h" />
     <ClInclude Include="Context.h" />
+    <ClInclude Include="Crand.h" />
     <ClInclude Include="CSGObject.h" />
+    <ClInclude Include="Diffuse.h" />
     <ClInclude Include="Disc.h" />
+    <ClInclude Include="Emission.h" />
     <ClInclude Include="Finish.h" />
+    <ClInclude Include="FinishBuilder.h" />
     <ClInclude Include="Interior.h" />
+    <ClInclude Include="Irid.h" />
     <ClInclude Include="Lemon.h" />
     <ClInclude Include="LightSource.h" />
     <ClInclude Include="Math.h" />
+    <ClInclude Include="Metallic.h" />
     <ClInclude Include="Normal.h" />
     <ClInclude Include="Ovus.h" />
+    <ClInclude Include="Pattern.h" />
+    <ClInclude Include="Phong.h" />
     <ClInclude Include="Pigment.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="Quadric.h" />
+    <ClInclude Include="Reflection.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Roughness.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="Specular.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Stdafx.h" />
+    <ClInclude Include="SubSurface.h" />
     <ClInclude Include="SuperEllipsoid.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Torus.h" />
@@ -196,7 +213,9 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="ColorMap.cpp" />
     <ClCompile Include="CSGObject.cpp" />
+    <ClCompile Include="FinishBuilder.cpp" />
     <ClCompile Include="Lemon.cpp" />
     <ClCompile Include="LightSource.cpp" />
     <ClCompile Include="povclr.cpp" />
