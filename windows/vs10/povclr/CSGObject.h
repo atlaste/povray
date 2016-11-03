@@ -6,6 +6,7 @@
 #include "Math.h"
 #include "Texture.h"
 #include "Interior.h"
+#include "Transformation.h"
 
 using namespace System;
 using namespace System::Collections::Generic;
@@ -61,7 +62,6 @@ namespace povclr
 		Texture ^Surface;
 		Interior ^Interior;
 		Texture ^InteriorTexture;
-		Transformation ^Transform;
 		double PhotonDensity;
 		double RadiosityImportance;
 		CSGFlags ^Flags;
@@ -74,7 +74,6 @@ namespace povclr
 			Surface(nullptr),
 			Interior(nullptr),
 			InteriorTexture(nullptr),
-			Transform(nullptr),
 			PhotonDensity(0),
 			RadiosityImportance(0),
 			Flags(CSGFlags::None)

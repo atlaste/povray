@@ -38,16 +38,6 @@ namespace povclr
 	private:
 		array<double>^ data = gcnew array<double>(16);
 
-		void Set(int x, int y, double value)
-		{
-			data[y * 4 + x] = value;
-		}
-
-		double Get(int x, int y)
-		{
-			return data[y * 4 + x];
-		}
-
 	public:
 		Matrix()
 		{
@@ -66,19 +56,16 @@ namespace povclr
 				}
 			}
 		}
-	};
 
-	public ref class Transformation
-	{
-	private:
-		Matrix ^Trans;
-		Matrix ^Inverse;
-
-	public:
-		Transformation()
+		void Set(int x, int y, double value)
 		{
-			Trans = gcnew Matrix();
-			Inverse = gcnew Matrix();
+			data[y * 4 + x] = value;
+		}
+
+		double Get(int x, int y)
+		{
+			return data[y * 4 + x];
 		}
 	};
+
 }

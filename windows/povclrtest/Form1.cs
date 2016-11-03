@@ -197,10 +197,11 @@ namespace povclrtest
                 var scene = new Scene(settings);
                 scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
                 scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)));
+                scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)).Rotate(0,0,90));
                 scene.Add(new Sphere(new Vector3(0, 0, 0), 10)
                 {
                     Surface = new Texture() { Pigment = new Pigment(new RGBFT(1, 0, 0)) }
-                });
+                }.Translate(0,10,0).Scale(2));
 
                 renderer = new ASyncRendering(scene);
                 renderer.Render();

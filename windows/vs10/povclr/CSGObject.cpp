@@ -63,7 +63,7 @@ namespace povclr
 			Clear_Flag(obj, PH_PASSTHRU_FLAG);
 		}
 
-		// TODO FIXME: Transformations...
+		RenderTransformations(context, obj);
 
 		if (Surface)
 		{
@@ -160,8 +160,8 @@ namespace povclr
 			BBox.size = pov::BBoxVector3d(max - min);
 
 			/* Get bounding boxes' volumes. */
-
 			// TODO - Area is probably a better measure to decide which box is better.
+
 			auto v1 = BBox.size[0] * BBox.size[1] * BBox.size[2];
 			auto v2 = obj->BBox.size[0] * obj->BBox.size[1] * obj->BBox.size[2];
 

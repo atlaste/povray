@@ -63,6 +63,8 @@ namespace povclr
 			}
 		}
 
+		RenderTransformations(context, obj);
+
 		SceneObject::PostProcess(context, obj, nullptr);
 		SceneObject::LinkToFrame(context, obj);
 	}
