@@ -2,7 +2,7 @@
 
 #include "core/material/texture.h"
 
-namespace povclr
+namespace povray
 {
 	[Flags()]
 	enum class FinishAdjustments

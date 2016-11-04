@@ -2,7 +2,7 @@
 
 #include "core/math/vector.h"
 
-namespace povclr
+namespace povray
 {
 	public value class Vector3
 	{

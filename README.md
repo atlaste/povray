@@ -46,6 +46,9 @@ Getting started
 You need Visual Studio 2015, Community Edition will do just fine. Open the solution in 
 Windows/vs10/povray.sln; select "Debug / x64" as configution and build.
 
+You'll find the DLL of pov.net in the distribution/api/pov.net folder. Note that while this 
+DLL is a .NET library, a lot of code will be Native and therefore target dependent.
+
 The project "povclrtest" contains the example code you need to get started.
 
 This project is a WIP
@@ -85,7 +88,7 @@ API Documentation
 --------------------------------------
 
 The API for this extension will closely follow the POV-Ray documentation. The only 
-namespace you ever need is the 'povclr' namespace.
+namespace you ever need is the 'povray' namespace. 
 
 When built and installed via the means provided in the source tree, all versions
 of POV-Ray come with documentation. For the Unix build, this is in the form of a

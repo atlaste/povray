@@ -203,7 +203,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{6561F415-93C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pov.net", "..\..\api\pov.net\pov.net.vcxproj", "{0D5A197A-ED9B-4B26-B5A4-1634C868BD8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pov.net_example", "..\..\api\pov.net_example\pov.net_example.csproj", "{7C74DFA2-4B9F-42B5-A0D1-41B98435B0D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pov.net.example", "..\..\api\pov.net_example\pov.net.example.csproj", "{7C74DFA2-4B9F-42B5-A0D1-41B98435B0D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

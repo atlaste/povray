@@ -1,6 +1,6 @@
 #pragma once
 
-namespace povclr
+namespace povray
 {
 	public interface class IMapType
 	{

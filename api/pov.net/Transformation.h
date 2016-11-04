@@ -6,7 +6,7 @@
 #include "core/math/vector.h"
 #include "core/math/matrix.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Transformation abstract
 	{

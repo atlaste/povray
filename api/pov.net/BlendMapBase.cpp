@@ -14,7 +14,7 @@
 // will work fine: it's very unlikely that the enumerator will need a dispose call anyways, and 'delete e' calls it explicitly,
 // so the only case when stuff will go wrong is when an exception occurs halfway in the process.
 
-namespace povclr
+namespace povray
 {
 	template <>
 	std::shared_ptr<pov::ColourBlendMap> BlendMapBaseHelper::CreateBlendMap<pov::ColourBlendMap>(gcroot<Context^> context, pov::BlendMapTypeId type, gcroot<IEnumerable<IMapType^>^> components)

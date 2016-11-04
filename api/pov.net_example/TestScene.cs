@@ -1,11 +1,11 @@
-﻿using povclr;
+﻿using povray;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace povclrtest
+namespace povray.test
 {
     public class TestScene
     {

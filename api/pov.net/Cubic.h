@@ -11,7 +11,7 @@
 #include "core/material/pattern.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Cubic : public Pattern, public ITargetType<Texture^>
 	{

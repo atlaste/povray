@@ -10,7 +10,7 @@
 #include "core/material/pattern.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	ref class Pigment;
 

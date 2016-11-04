@@ -5,7 +5,7 @@
 
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	struct BlendMapBaseHelper
 	{

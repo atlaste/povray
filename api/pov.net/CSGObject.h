@@ -11,7 +11,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	[Flags()]
 	public enum class CSGFlags : int

@@ -5,7 +5,7 @@
 using namespace System;
 using namespace System::Drawing;
 
-namespace povclr
+namespace povray
 {
 	public ref class SyncRendering
 	{

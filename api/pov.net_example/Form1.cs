@@ -1,17 +1,15 @@
-﻿using povclr;
+﻿using povray;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace povclrtest
+namespace povray.test
 {
     public partial class Form1 : Form
     {
@@ -38,7 +36,7 @@ namespace povclrtest
                         Pigment = new Pigment(
                             new Agate(
                                 0.5f,
-                                new povclr.ColorMap(
+                                new ColorMap(
                                     new ColorMapEntry(0.0f, new RGBFT(0, 0, 0)),
                                     new ColorMapEntry(0.3f, new RGBFT(1, 0.5f, 1)))))
                     }

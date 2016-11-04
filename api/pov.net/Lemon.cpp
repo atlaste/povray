@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "Lemon.h"
 
-namespace povclr
+namespace povray
 {
 	struct TrivialMessenger : public pov::GenericMessenger
 	{

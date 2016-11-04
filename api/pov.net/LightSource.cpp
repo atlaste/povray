@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "LightSource.h"
 
-namespace povclr
+namespace povray
 {
 	void LightSource::Render(Context^ context)
 	{

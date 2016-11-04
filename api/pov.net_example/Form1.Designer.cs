@@ -1,4 +1,4 @@
-﻿namespace povclrtest
+﻿namespace povray.test
 {
     partial class Form1
     {

@@ -10,7 +10,7 @@
 #include "core/material/pigment.h"
 #include "core/material/pattern.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Pigment : public IMapType
 	{
@@ -26,7 +26,7 @@ namespace povclr
 		{}
 
 		Pigment(ITargetType<Pigment^> ^pattern) :
-			Pattern((povclr::Pattern^) pattern)
+			Pattern((povray::Pattern^) pattern)
 		{}
 
 		Pattern^ Pattern;

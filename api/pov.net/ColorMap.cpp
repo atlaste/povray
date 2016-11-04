@@ -6,7 +6,7 @@
 #include "core/material/pattern.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	template<>
 	pov::ColourBlendMapPtr ColorMapDetail::Render<pov::ColourBlendMap>(gcroot<Context^> context, std::vector<pov::ColourBlendMapEntry>& tempList, int blendMode, float blendGamma)

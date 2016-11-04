@@ -14,7 +14,7 @@
 #include "Specular.h"
 #include "SubSurface.h"
 
-namespace povclr
+namespace povray
 {
 	ref class Ambient;
 	ref class Brilliance;

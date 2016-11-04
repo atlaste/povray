@@ -7,7 +7,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	// Some helper classes we need here (but shouldn't be exposed to the outside world)
 

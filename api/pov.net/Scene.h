@@ -8,7 +8,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	public ref class Scene : public List<SceneObject^>
 	{
@@ -27,17 +27,17 @@ namespace povclr
 			pov::InitializePatternGenerators();
 		}
 
-		Scene(povclr::Settings^ settings)
+		Scene(povray::Settings^ settings)
 		{
 			Settings = settings;
 		}
 
 		Scene()
 		{
-			Settings = gcnew povclr::Settings(320,200);
+			Settings = gcnew povray::Settings(320,200);
 		}
 
-		property povclr::Settings^ Settings;
+		property povray::Settings^ Settings;
 
 		void Render(RenderTarget^ target);
 	};

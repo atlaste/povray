@@ -12,7 +12,7 @@
 #include "core/material/pattern.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Spotted : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
 	{

@@ -10,7 +10,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	// This struct is necessary because of a bug in C++/CLI: basically the thing doesn't understand template specializations that 
 	// are implemented in the cpp file. This workaround does the trick:

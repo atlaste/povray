@@ -2,7 +2,7 @@
 
 #include "IMapType.h"
 
-namespace povclr
+namespace povray
 {
 	public value class RGB
 	{

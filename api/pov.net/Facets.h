@@ -13,7 +13,7 @@
 #include "core/material/pattern.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Facets : public Pattern, public ITargetType<Normal^>
 	{

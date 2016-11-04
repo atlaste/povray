@@ -7,7 +7,7 @@ using namespace System;
 using namespace System::Drawing;
 using namespace System::Threading;
 
-namespace povclr
+namespace povray
 {
 	public ref class ASyncRendering
 	{

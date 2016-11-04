@@ -15,7 +15,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	public ref class SceneObject abstract
 	{
@@ -52,7 +52,7 @@ namespace povclr
 			{
 				Transformations = gcnew List<Transformation^>();
 			}
-			Transformations->Add(gcnew povclr::Translate(vector));
+			Transformations->Add(gcnew povray::Translate(vector));
 
 			return this;
 		}
@@ -63,7 +63,7 @@ namespace povclr
 			{
 				Transformations = gcnew List<Transformation^>();
 			}
-			Transformations->Add(gcnew povclr::Rotate(vector));
+			Transformations->Add(gcnew povray::Rotate(vector));
 
 			return this;
 		}
@@ -74,7 +74,7 @@ namespace povclr
 			{
 				Transformations = gcnew List<Transformation^>();
 			}
-			Transformations->Add(gcnew povclr::Scale(vector));
+			Transformations->Add(gcnew povray::Scale(vector));
 
 			return this;
 		}
@@ -113,7 +113,7 @@ namespace povclr
 			{
 				Transformations = gcnew List<Transformation^>();
 			}
-			Transformations->Add(gcnew povclr::MatrixTransformation(matrix));
+			Transformations->Add(gcnew povray::MatrixTransformation(matrix));
 
 			return this;
 		}

@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "SceneObject.h"
 
-namespace povclr
+namespace povray
 {
 	void SceneObject::CheckPassThru(Context^ context, pov::ObjectPtr o, int flag)
 	{

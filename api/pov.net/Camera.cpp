@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "Camera.h"
 
-namespace povclr
+namespace povray
 {
 	void Camera::Render(Context^ context)
 	{

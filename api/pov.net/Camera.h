@@ -8,7 +8,7 @@
 using namespace System;
 using namespace System::Collections::Generic;
 
-namespace povclr
+namespace povray
 {
 	public ref class Camera : public SceneObject
 	{

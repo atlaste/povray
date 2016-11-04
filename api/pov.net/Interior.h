@@ -5,7 +5,7 @@
 #include "core/material/texture.h"
 #include "core/material/normal.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Interior
 	{

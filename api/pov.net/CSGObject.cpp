@@ -1,7 +1,7 @@
 #include "Stdafx.h"
 #include "CSGObject.h"
 
-namespace povclr
+namespace povray
 {
 	inline float minval(float lhs, float rhs)
 	{

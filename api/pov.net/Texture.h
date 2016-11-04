@@ -9,7 +9,7 @@
 #include "core/material/texture.h"
 #include "core/material/pigment.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Texture : public IMapType
 	{
@@ -39,7 +39,7 @@ namespace povclr
 			// Apply finish:
 			if (finish != nullptr)
 			{
-				for each (povclr::Finish^ fin in finish)
+				for each (povray::Finish^ fin in finish)
 				{
 					fin->Render(texture->Finish);
 				}

@@ -5,7 +5,7 @@
 
 #include "core/material/texture.h"
 
-namespace povclr
+namespace povray
 {
 	public ref class Crand : public Finish
 	{
