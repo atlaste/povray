@@ -4,7 +4,7 @@
 
 namespace povclr
 {
-	public ref class RGB
+	public value class RGB
 	{
 	internal:
 		void RenderDetail(pov::MathColour& dst)
@@ -28,7 +28,7 @@ namespace povclr
 		double Blue;
 	};
 
-	public ref class RGBFT : public RGB, public IMapType
+	public value class RGBFT : public IMapType
 	{
 	internal:
 		void RenderDetail(pov::TransColour& dst)
@@ -44,17 +44,24 @@ namespace povclr
 
 	public:
 		RGBFT(double r, double g, double b, double f, double t) :
-			RGB(r, g, b),
+			Red(r),
+			Green(g),
+			Blue(b),
 			Filter(f),
 			Transparency(t)
 		{}
 
 		RGBFT(double r, double g, double b) :
-			RGB(r, g, b),
+			Red(r),
+			Green(g),
+			Blue(b),
 			Filter(0),
 			Transparency(0)
 		{}
 
+		double Red;
+		double Green;
+		double Blue;
 		double Filter;
 		double Transparency;
 	};

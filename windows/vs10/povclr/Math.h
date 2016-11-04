@@ -4,7 +4,7 @@
 
 namespace povclr
 {
-	public ref class Vector3
+	public value class Vector3
 	{
 	public:
 		Vector3(double x, double y, double z) :
@@ -19,7 +19,7 @@ namespace povclr
 		pov::Vector3d ToVector() { return pov::Vector3d(X, Y, Z); }
 	};
 
-	public ref class Vector2
+	public value class Vector2
 	{
 	public:
 		Vector2(double x, double y) :
@@ -67,5 +67,4 @@ namespace povclr
 			return data[y * 4 + x];
 		}
 	};
-
 }

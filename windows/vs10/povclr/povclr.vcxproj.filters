@@ -20,6 +20,9 @@
     <Filter Include="Model\Material\Patterns">
       <UniqueIdentifier>{6d948aa5-82f0-4c5f-b9a9-32ab89128b72}</UniqueIdentifier>
     </Filter>
+    <Filter Include="API">
+      <UniqueIdentifier>{86510bc9-9fcf-4059-92ba-d22f0bc90955}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -239,6 +242,15 @@
     <ClInclude Include="Wood.h">
       <Filter>Model\Material\Patterns</Filter>
     </ClInclude>
+    <ClInclude Include="RenderCallback.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="ASyncRendering.h">
+      <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="SyncRendering.h">
+      <Filter>API</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -273,6 +285,9 @@
     </ClCompile>
     <ClCompile Include="Patterns.cpp">
       <Filter>Model\Material\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Api.cpp">
+      <Filter>API</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

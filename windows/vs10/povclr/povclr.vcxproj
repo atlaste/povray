@@ -159,11 +159,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Agate.h" />
     <ClInclude Include="Ambient.h" />
+    <ClInclude Include="ASyncRendering.h" />
     <ClInclude Include="BlendMapBase.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Boxed.h" />
@@ -213,6 +215,7 @@
     <ClInclude Include="Quadric.h" />
     <ClInclude Include="Radial.h" />
     <ClInclude Include="Reflection.h" />
+    <ClInclude Include="RenderCallback.h" />
     <ClInclude Include="RenderTarget.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Ripples.h" />
@@ -231,6 +234,7 @@
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="SubSurface.h" />
     <ClInclude Include="SuperEllipsoid.h" />
+    <ClInclude Include="SyncRendering.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Tiling.h" />
     <ClInclude Include="Torus.h" />
@@ -243,6 +247,7 @@
     <ClInclude Include="Wrinkles.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Api.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="BlendMapBase.cpp" />
     <ClCompile Include="Camera.cpp" />
