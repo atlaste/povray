@@ -20,11 +20,11 @@ namespace povclr
 			BspChildAccessCost(0.0f),
 			BspMissChance(0.0f),
 			TracingMethod(0),
-			JitterScale(1.0),
+			JitterScale(1.0f),
 			Jitter(false),
-			AAThreshold(0.3),
+			AAThreshold(0.3f),
 			AADepth(3),
-			AAGammaValue(1.0),
+			AAGammaValue(1.0f),
 			Width(width),
 			Height(height)
 		{}
@@ -43,11 +43,11 @@ namespace povclr
 		int Quality = 9;
 
 		int TracingMethod = 0;
-		float JitterScale = 1.0;
+		float JitterScale = 1.0f;
 		bool Jitter = false;
-		float AAThreshold = 0.3;
+		float AAThreshold = 0.3f;
 		int AADepth = 3;
-		float AAGammaValue = 1.0;
+		float AAGammaValue = 1.0f;
 
 		bool RadiosityEnabled = false;
 

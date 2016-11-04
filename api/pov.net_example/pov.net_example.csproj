@@ -108,9 +108,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\vs10\povclr\povclr.vcxproj">
+    <ProjectReference Include="..\pov.net\pov.net.vcxproj">
       <Project>{0d5a197a-ed9b-4b26-b5a4-1634c868bd8e}</Project>
-      <Name>povclr</Name>
+      <Name>pov.net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -41,6 +41,7 @@
 #define _WIN32_IE COMMONCTRL_VERSION
 
 #include "syspovconfig.h"
+#undef POV_VIDCAP_IMPL
 
 #include <windows.h>
 #include <crtdbg.h>

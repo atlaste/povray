@@ -164,6 +164,14 @@ $RECYCLE.BIN/
 /windows/povclrtest/obj/
 /windows/povclrtest/bin/
 
+/api/pov.net/x64/
+/api/pov.net/Debug/
+/api/pov.net_example/obj/
+/api/pov.net_example/bin/
+/api/x64/
+/api/x64/Debug/
+/distribution/api/
+
 # ============================
 # POV-Ray Unix build artefacts
 # ============================
