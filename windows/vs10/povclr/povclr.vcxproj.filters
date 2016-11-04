@@ -176,6 +176,69 @@
     <ClInclude Include="Cubic.h">
       <Filter>Model\Material\Patterns</Filter>
     </ClInclude>
+    <ClInclude Include="Cylindrical.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Dents.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Facets.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Granite.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Hexagon.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="LeopardPattern.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Onion.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Planar.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Radial.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Ripples.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Slope.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Spherical.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Spiral1.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Spiral2.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Spotted.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Square.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Tiling.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangular.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Waves.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Wrinkles.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Wood.h">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -206,6 +269,9 @@
       <Filter>Model\Material\Patterns</Filter>
     </ClCompile>
     <ClCompile Include="BlendMapBase.cpp">
+      <Filter>Model\Material\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Patterns.cpp">
       <Filter>Model\Material\Patterns</Filter>
     </ClCompile>
   </ItemGroup>

@@ -54,7 +54,7 @@
 #ifndef BUILT_BY
 /// Specifies the person or organization responsible for this build.
 /// @attention Please set this to your real name, and/or include a working email or website address to contact you.
-#define BUILT_BY "Stefan de Bruijn (atlaste@yahoo.com)"
+#define BUILT_BY "Some Unknown User. This work is an unofficially, derived work from POV-Ray created by Stefan de Bruijn. If you see this message, please note that POV-Ray as well as the API are licensed under the GNU Affero General Public License and provided as-is."
 #endif
 
 #endif // POVRAY_BASE_BUILD_H
