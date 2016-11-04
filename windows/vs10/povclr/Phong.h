@@ -13,7 +13,7 @@ namespace povclr
 		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
 		{
 			texture->Phong = float(this->Amount);
-			if (!double::IsNaN(Size))
+			if (!float::IsNaN(Size))
 			{
 				texture->Phong_Size = float(this->Size);
 			}
@@ -22,20 +22,20 @@ namespace povclr
 		}
 
 	public:
-		Phong(bool albedo, double amount, double size) :
+		Phong(bool albedo, float amount, float size) :
 			Albedo(albedo),
 			Amount(amount),
 			Size(size)
 		{}
 
-		Phong(double amount) :
+		Phong(float amount) :
 			Albedo(false),
 			Amount(amount),
-			Size(double::NaN)
+			Size(float::NaN)
 		{}
 
 		bool Albedo;
-		double Amount;
-		double Size;
+		float Amount;
+		float Size;
 	};
 }

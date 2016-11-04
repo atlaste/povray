@@ -31,7 +31,7 @@ namespace povclr
 		Hollow = 0x00000800, /* Object is hollow (atmosphere inside)   */
 		HollowSet = 0x00001000, /* Hollow explicitly set in scene file    */
 		UV = 0x00002000, /* Object uses UV mapping                 */
-		DoubleIlluminate = 0x00004000, /* Illuminate both sides of the surface   */
+		floatIlluminate = 0x00004000, /* Illuminate both sides of the surface   */
 		NoImage = 0x00008000, /* Object doesn't catch camera rays     [ENB 9/97] */
 		NoReflection = 0x00010000, /* Object doesn't catch reflection rays [ENB 9/97] */
 		NoGlobalLights = 0x00020000, /* Object doesn't receive light from global lights */
@@ -56,20 +56,20 @@ namespace povclr
 	public:
 		bool UVMapping;
 		bool Inverse;
-		double Refraction;
-		double Reflection;
-		double PassThrough;
+		float Refraction;
+		float Reflection;
+		float PassThrough;
 		Texture ^Surface;
 		Interior ^Interior;
 		Texture ^InteriorTexture;
-		double PhotonDensity;
-		double RadiosityImportance;
+		float PhotonDensity;
+		float RadiosityImportance;
 		CSGFlags ^Flags;
 
 		CSGObject() :
 			UVMapping(false),
-			Refraction(double::NaN),
-			Reflection(double::NaN),
+			Refraction(float::NaN),
+			Reflection(float::NaN),
 			PassThrough(0),
 			Surface(nullptr),
 			Interior(nullptr),

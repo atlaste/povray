@@ -15,10 +15,10 @@ namespace povclr
 	public ref class Plane : CSGObject
 	{
 	public:
-		Vector3 ^Normal;
-		double Distance;
+		Vector3 Normal;
+		float Distance;
 
-		Plane(Vector3 ^normal, double distance) :
+		Plane(Vector3 normal, float distance) :
 			Normal(normal),
 			Distance(distance)
 		{}
@@ -26,7 +26,7 @@ namespace povclr
 		virtual void Render(Context^ context) override
 		{
 			auto obj = new pov::Plane();
-			obj->Normal_Vector = Normal->ToVector();
+			obj->Normal_Vector = Normal.ToVector();
 			obj->Distance = -Distance;
 
 			auto len = obj->Normal_Vector.length();

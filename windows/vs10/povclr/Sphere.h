@@ -15,10 +15,10 @@ namespace povclr
 	public ref class Sphere : CSGObject
 	{
 	public:
-		Vector3 ^Center;
-		double Radius;
+		Vector3 Center;
+		float Radius;
 
-		Sphere(Vector3 ^center, double radius) :
+		Sphere(Vector3 center, float radius) :
 			Center(center),
 			Radius(radius)
 		{}
@@ -26,7 +26,7 @@ namespace povclr
 		virtual void Render(Context^ context) override
 		{
 			auto obj = new pov::Sphere();
-			obj->Center = Center->ToVector();
+			obj->Center = Center.ToVector();
 			obj->Radius = Radius;
 
 			obj->Compute_BBox();

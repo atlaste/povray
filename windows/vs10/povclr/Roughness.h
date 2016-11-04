@@ -18,10 +18,10 @@ namespace povclr
 		}
 
 	public:
-		Roughness(double amount) :
+		Roughness(float amount) :
 			Amount(amount)
 		{}
 
-		double Amount;
+		float Amount;
 	};
 }

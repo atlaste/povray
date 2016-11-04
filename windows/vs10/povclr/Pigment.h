@@ -21,7 +21,7 @@ namespace povclr
 		}
 
 	public:
-		Pigment(RGBFT ^color) :
+		Pigment(RGBFT color) :
 			Pattern(gcnew PlainPattern(color))
 		{}
 

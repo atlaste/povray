@@ -25,7 +25,7 @@ namespace povclr
 			return false;
 		}
 
-		double PercentCompleted()
+		float PercentCompleted()
 		{
 			return result == nullptr ? 0 : 100;
 		}

@@ -15,10 +15,10 @@ namespace povclr
 	public ref class Box : CSGObject
 	{
 	public:
-		Vector3 ^TopLeft;
-		Vector3 ^BottomRight;
+		Vector3 TopLeft;
+		Vector3 BottomRight;
 
-		Box(Vector3 ^topLeft, Vector3 ^bottomRight) :
+		Box(Vector3 topLeft, Vector3 bottomRight) :
 			TopLeft(topLeft),
 			BottomRight(bottomRight)
 		{}
@@ -26,8 +26,8 @@ namespace povclr
 		virtual void Render(Context^ context) override
 		{
 			auto obj = new pov::Box();
-			obj->bounds[0] = TopLeft->ToVector();
-			obj->bounds[1] = BottomRight->ToVector();
+			obj->bounds[0] = TopLeft.ToVector();
+			obj->bounds[1] = BottomRight.ToVector();
 
 			obj->Compute_BBox();
 

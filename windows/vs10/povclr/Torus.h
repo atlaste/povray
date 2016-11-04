@@ -23,15 +23,15 @@ namespace povclr
 	public ref class Torus : CSGObject
 	{
 	public:
-		double MajorRadius;
-		double MinorRadius;
+		float MajorRadius;
+		float MinorRadius;
 		SpindleMode Spindle;
 
-		Torus(double majorRadius, double minorRadius) :
+		Torus(float majorRadius, float minorRadius) :
 			MajorRadius(majorRadius), MinorRadius(minorRadius), Spindle(SpindleMode::Union)
 		{}
 
-		Torus(double majorRadius, double minorRadius, SpindleMode spindleMode) :
+		Torus(float majorRadius, float minorRadius, SpindleMode spindleMode) :
 			MajorRadius(majorRadius), MinorRadius(minorRadius), Spindle(spindleMode)
 		{}
 

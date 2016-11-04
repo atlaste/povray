@@ -19,16 +19,16 @@ namespace povclr
 	internal:
 		virtual void Render(Context^ context, pov::ObjectBase* obj, pov::TRANSFORM *localTrans) override
 		{
-			pov::Compute_Rotation_Transform(localTrans, Rotation->ToVector());
-			pov::Rotate_Object(obj, Rotation->ToVector(), localTrans);
+			pov::Compute_Rotation_Transform(localTrans, Rotation.ToVector());
+			pov::Rotate_Object(obj, Rotation.ToVector(), localTrans);
 		}
 
 	public:
-		Rotate(Vector3 ^rotation) :
+		Rotate(Vector3 rotation) :
 			Rotation(rotation)
 		{}
 
-		Vector3 ^Rotation;
+		Vector3 Rotation;
 	};
 
 	public ref class Translate : public Transformation
@@ -36,16 +36,16 @@ namespace povclr
 	internal:
 		virtual void Render(Context^ context, pov::ObjectBase* obj, pov::TRANSFORM *localTrans) override
 		{
-			pov::Compute_Translation_Transform(localTrans, Translation->ToVector());
-			pov::Translate_Object(obj, Translation->ToVector(), localTrans);
+			pov::Compute_Translation_Transform(localTrans, Translation.ToVector());
+			pov::Translate_Object(obj, Translation.ToVector(), localTrans);
 		}
 
 	public:
-		Translate(Vector3 ^translation) :
+		Translate(Vector3 translation) :
 			Translation(translation)
 		{}
 
-		Vector3 ^Translation;
+		Vector3 Translation;
 	};
 
 	public ref class Scale : public Transformation
@@ -53,16 +53,16 @@ namespace povclr
 	internal:
 		virtual void Render(Context^ context, pov::ObjectBase* obj, pov::TRANSFORM *localTrans) override
 		{
-			pov::Compute_Scaling_Transform(localTrans, Scaling->ToVector());
-			pov::Scale_Object(obj, Scaling->ToVector(), localTrans);
+			pov::Compute_Scaling_Transform(localTrans, Scaling.ToVector());
+			pov::Scale_Object(obj, Scaling.ToVector(), localTrans);
 		}
 
 	public:
-		Scale(Vector3 ^scaling) :
+		Scale(Vector3 scaling) :
 			Scaling(scaling)
 		{}
 
-		Vector3 ^Scaling;
+		Vector3 Scaling;
 	};
 
 	public ref class MatrixTransformation : public Transformation

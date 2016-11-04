@@ -320,7 +320,7 @@ namespace povclr
 		// Test wether the object is finite or infinite. [DB 9/94]
 		// CJC TODO FIXME: see if this can be improved, and/or if it is appropriate for all bounding systems
 
-		double volume = obj->BBox.size[0] * obj->BBox.size[1] * obj->BBox.size[2];
+		float volume = obj->BBox.size[0] * obj->BBox.size[1] * obj->BBox.size[2];
 
 		if (volume > HUGE_VAL)
 		{

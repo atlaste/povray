@@ -12,11 +12,11 @@ namespace povclr
 	internal:
 		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
 		{
-			if (Thickness != 0.0 && !double::IsNaN(Thickness))
+			if (Thickness != 0.0 && !float::IsNaN(Thickness))
 			{
 				texture->Irid_Film_Thickness = float(Thickness);
 			}
-			if (Turbulence != 0.0 && !double::IsNaN(Turbulence))
+			if (Turbulence != 0.0 && !float::IsNaN(Turbulence))
 			{
 				texture->Irid_Turb = float(Turbulence);
 			}
@@ -27,14 +27,14 @@ namespace povclr
 		}
 
 	public:
-		Irid(double amount, double thickness, double turbulence) :
+		Irid(float amount, float thickness, float turbulence) :
 			Amount(amount),
 			Thickness(thickness),
 			Turbulence(turbulence)
 		{}
 
-		double Amount;
-		double Thickness;
-		double Turbulence;
+		float Amount;
+		float Thickness;
+		float Turbulence;
 	};
 }

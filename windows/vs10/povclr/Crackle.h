@@ -24,7 +24,7 @@ namespace povclr
 			container->Type = pov::CRACKLE_PATTERN;
 			auto pat = new pov::CracklePattern();
 			pat->crackleIsSolid = 0;
-			pat->crackleForm = Form->ToVector();
+			pat->crackleForm = Form.ToVector();
 			pat->crackleMetric = Metric;
 			pat->crackleOffset = Offset;
 			container->pattern = pov::PatternPtr(pat);
@@ -34,25 +34,25 @@ namespace povclr
 
 	public:
 		Crackle() :
-			Form(gcnew Vector3(-1, 1, 0)),
+			Form(Vector3(-1, 1, 0)),
 			Metric(2),
 			Offset(0)
 		{}
 		
-		Crackle(Vector3^ form) :
+		Crackle(Vector3 form) :
 			Form(form),
 			Metric(2),
 			Offset(0)
 		{}
 
-		Crackle(Vector3^ form, double metric, double offset) : 
+		Crackle(Vector3 form, float metric, float offset) : 
 			Form(form),
 			Metric(metric),
 			Offset(offset)
 		{}
 
-		Vector3^ Form;
-		double Metric;
-		double Offset;
+		Vector3 Form;
+		float Metric;
+		float Offset;
 	};
 }

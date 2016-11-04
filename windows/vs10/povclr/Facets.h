@@ -54,14 +54,14 @@ namespace povclr
 			Metric(2)
 		{}
 
-		Facets(double scaleValue, double sizeFactor, ... array<Normal^>^ normalMap) :
+		Facets(float scaleValue, float sizeFactor, ... array<Normal^>^ normalMap) :
 			NormalMap(normalMap),
 			Coordinates(scaleValue),
 			SizeFactor(sizeFactor),
 			Metric(2)
 		{}
 
-		Facets(double scaleValue, double sizeFactor, double metric, ... array<Normal^>^ normalMap) :
+		Facets(float scaleValue, float sizeFactor, float metric, ... array<Normal^>^ normalMap) :
 			NormalMap(normalMap),
 			Coordinates(scaleValue),
 			SizeFactor(sizeFactor),
@@ -69,8 +69,8 @@ namespace povclr
 		{}
 
 		array<Normal^>^ NormalMap;
-		double Coordinates;
-		double SizeFactor;
-		double Metric;
+		float Coordinates;
+		float SizeFactor;
+		float Metric;
 	};
 }

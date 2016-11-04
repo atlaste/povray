@@ -28,13 +28,13 @@ namespace povclr
 			return callback != nullptr;
 		}
 
-		double PercentCompleted()
+		float PercentCompleted()
 		{
 			Thread::MemoryBarrier();
 			RenderCallback ^tmp = callback;
 			if (tmp == nullptr) { return 100.0; }
 			else if (tmp->NumberPixels == 0) { return 0; }
-			else { return 100.0 * (double)tmp->PixelsProcessed / (double)tmp->NumberPixels; }
+			else { return 100.0 * (float)tmp->PixelsProcessed / (float)tmp->NumberPixels; }
 		}
 
 		Image ^CurrentStatus()

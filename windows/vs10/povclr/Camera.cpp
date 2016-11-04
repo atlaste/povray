@@ -12,8 +12,8 @@ namespace povclr
 		context->camera = new pov::Camera();
 
 		auto cam = context->camera;
-		cam->Location = Location->ToVector();
-		cam->Look_At = LookAt->ToVector();
+		cam->Location = Location.ToVector();
+		cam->Look_At = LookAt.ToVector();
 		// etc.
 
 		// Parser.cpp:1759 also contains a lot of logic:

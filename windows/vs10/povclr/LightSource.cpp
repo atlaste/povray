@@ -6,8 +6,8 @@ namespace povclr
 	void LightSource::Render(Context^ context)
 	{
 		auto obj = new pov::LightSource();
-		obj->Center = Location->ToVector();
-		Color->RenderDetail(obj->colour);
+		obj->Center = Location.ToVector();
+		Color.RenderDetail(obj->colour);
 
 		// [SdB] Most of this code is actually from the parser... only god knows why logic about objects ended up there...
 

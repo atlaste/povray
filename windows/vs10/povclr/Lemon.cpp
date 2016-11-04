@@ -57,8 +57,8 @@ namespace povclr
 	void Lemon::Render(Context^ context)
 	{
 		auto obj = new pov::Lemon();
-		obj->base = Base->ToVector();
-		obj->apex = Apex->ToVector();
+		obj->base = Base.ToVector();
+		obj->apex = Apex.ToVector();
 		obj->base_radius = BaseRadius;
 		obj->apex_radius = ApexRadius;
 		obj->inner_radius = InnerRadius;

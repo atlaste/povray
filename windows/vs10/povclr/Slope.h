@@ -25,10 +25,10 @@ namespace povclr
 			auto pat = new pov::SlopePattern();
 			container->pattern = pov::PatternPtr(pat);
 
-			pat->slopeDirection = Direction->ToVector();
+			pat->slopeDirection = Direction.ToVector();
 			pat->slopeModLow = LowSlope;
 			pat->slopeModWidth = HighSlope - LowSlope;
-			pat->altitudeDirection = Altitude->ToVector();
+			pat->altitudeDirection = Altitude.ToVector();
 			pat->altitudeModLow = LowAltitude;
 			pat->altitudeModWidth = HighAltitude - LowAltitude;
 
@@ -70,25 +70,25 @@ namespace povclr
 		IMPLEMENT_DEFAULT_PATTERN_CODE
 
 	public:
-		Slope(Vector3 ^direction) :
+		Slope(Vector3 direction) :
 			Direction(direction),
 			HighSlope(0),
 			LowSlope(1),
-			Altitude(gcnew Vector3(0,0,0)),
+			Altitude(Vector3(0,0,0)),
 			LowAltitude(0),
 			HighAltitude(0)
 		{}
 
-		Slope(Vector3 ^direction, double highSlope, double lowSlope) :
+		Slope(Vector3 direction, float highSlope, float lowSlope) :
 			Direction(direction),
 			HighSlope(highSlope),
 			LowSlope(lowSlope),
-			Altitude(gcnew Vector3(0, 0, 0)),
+			Altitude(Vector3(0, 0, 0)),
 			LowAltitude(0),
 			HighAltitude(0)
 		{}
 
-		Slope(Vector3 ^direction, double highSlope, double lowSlope, Vector3 ^altitude, double lowAltitude, double highAltitude) :
+		Slope(Vector3 direction, float highSlope, float lowSlope, Vector3 altitude, float lowAltitude, float highAltitude) :
 			Direction(direction),
 			HighSlope(highSlope),
 			LowSlope(lowSlope),
@@ -97,11 +97,11 @@ namespace povclr
 			HighAltitude(highAltitude)
 		{}
 
-		Vector3 ^Direction;
-		double HighSlope;
-		double LowSlope;
-		Vector3 ^Altitude;
-		double LowAltitude;
-		double HighAltitude;
+		Vector3 Direction;
+		float HighSlope;
+		float LowSlope;
+		Vector3 Altitude;
+		float LowAltitude;
+		float HighAltitude;
 	};
 }

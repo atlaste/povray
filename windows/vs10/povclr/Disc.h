@@ -15,19 +15,19 @@ namespace povclr
 	public ref class Disc : CSGObject
 	{
 	public:
-		Vector3 ^Center;
-		Vector3 ^Normal;
-		double InnerRadius;
-		double OuterRadius;
+		Vector3 Center;
+		Vector3 Normal;
+		float InnerRadius;
+		float OuterRadius;
 
-		Disc(Vector3 ^center, Vector3 ^normal, double outerRadius) :
+		Disc(Vector3 center, Vector3 normal, float outerRadius) :
 			Center(center),
 			Normal(normal),
 			OuterRadius(outerRadius),
 			InnerRadius(0)
 		{}
 
-		Disc(Vector3 ^center, Vector3 ^normal, double outerRadius, double innerRadius) :
+		Disc(Vector3 center, Vector3 normal, float outerRadius, float innerRadius) :
 			Center(center),
 			Normal(normal),
 			OuterRadius(outerRadius),
@@ -37,8 +37,8 @@ namespace povclr
 		virtual void Render(Context^ context) override
 		{
 			auto obj = new pov::Disc();
-			obj->center = Center->ToVector();
-			obj->normal = Normal->ToVector();
+			obj->center = Center.ToVector();
+			obj->normal = Normal.ToVector();
 			obj->iradius2 = InnerRadius * InnerRadius;
 			obj->oradius2 = OuterRadius * OuterRadius;
 

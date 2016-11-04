@@ -17,10 +17,10 @@ namespace povclr
 		}
 
 	public:
-		Crand(double amount) :
+		Crand(float amount) :
 			Amount(amount)
 		{}
 
-		double Amount;
+		float Amount;
 	};
 }

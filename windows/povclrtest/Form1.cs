@@ -37,10 +37,10 @@ namespace povclrtest
                     {
                         Pigment = new Pigment(
                             new Agate(
-                                0.5,
+                                0.5f,
                                 new povclr.ColorMap(
-                                    new ColorMapEntry(0.0, new RGBFT(0, 0, 0)),
-                                    new ColorMapEntry(0.3, new RGBFT(1, 0.5, 1)))))
+                                    new ColorMapEntry(0.0f, new RGBFT(0, 0, 0)),
+                                    new ColorMapEntry(0.3f, new RGBFT(1, 0.5f, 1)))))
                     }
                 }.
                 Rotate(2, 60, 124).

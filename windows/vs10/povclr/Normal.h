@@ -19,8 +19,8 @@ namespace povclr
 			Pattern(pattern)
 		{}
 
-		double Amount;
-		double Delta;
+		float Amount;
+		float Delta;
 		Pattern^ Pattern;
 	};
 }

@@ -19,20 +19,20 @@ namespace povclr
 		}
 
 	public:
-		Diffuse(bool albedo, double amount, double backsideIllumination) :
+		Diffuse(bool albedo, float amount, float backsideIllumination) :
 			Albedo(albedo),
 			Amount(amount),
 			BacksideIllumination(backsideIllumination)
 		{}
 
-		Diffuse(double amount) :
+		Diffuse(float amount) :
 			Albedo(false),
 			Amount(amount),
 			BacksideIllumination(0.0)
 		{}
 
 		bool Albedo;
-		double Amount;
-		double BacksideIllumination;
+		float Amount;
+		float BacksideIllumination;
 	};
 }

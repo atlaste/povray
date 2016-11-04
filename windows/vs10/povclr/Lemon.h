@@ -17,13 +17,13 @@ namespace povclr
 	public ref class Lemon : CSGObject
 	{
 	public:
-		Vector3 ^Base;
-		double BaseRadius;
-		Vector3 ^Apex;
-		double ApexRadius;
-		double InnerRadius;
+		Vector3 Base;
+		float BaseRadius;
+		Vector3 Apex;
+		float ApexRadius;
+		float InnerRadius;
 
-		Lemon(Vector3 ^base, double baseRadius, Vector3 ^apex, double apexRadius, double innerRadius) :
+		Lemon(Vector3 base, float baseRadius, Vector3 apex, float apexRadius, float innerRadius) :
 			Base(base),
 			BaseRadius(baseRadius),
 			Apex(apex),

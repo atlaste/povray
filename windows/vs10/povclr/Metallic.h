@@ -17,10 +17,10 @@ namespace povclr
 		}
 
 	public:
-		Metallic(double amount) :
+		Metallic(float amount) :
 			Amount(amount)
 		{}
 
-		double Amount;
+		float Amount;
 	};
 }

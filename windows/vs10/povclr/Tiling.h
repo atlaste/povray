@@ -30,7 +30,7 @@ namespace povclr
 		RectangleSquare = 12,
 		SquareInternal = 13,
 		SquareInternal5 = 14,
-		SquareDouble = 15,
+		Squarefloat = 15,
 		HexaSquareTriangle = 16,
 		HexaSquareTriangle6 = 17,
 		RectanglePair = 18,

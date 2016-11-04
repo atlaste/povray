@@ -15,11 +15,11 @@ namespace povclr
 	public ref class Triangle : CSGObject
 	{
 	public:
-		Vector3 ^P1;
-		Vector3 ^P2;
-		Vector3 ^P3;
+		Vector3 P1;
+		Vector3 P2;
+		Vector3 P3;
 
-		Triangle(Vector3 ^p1, Vector3 ^p2, Vector3 ^p3) :
+		Triangle(Vector3 p1, Vector3 p2, Vector3 p3) :
 			P1(p1), P2(p2), P3(p3)
 		{}
 
@@ -27,9 +27,9 @@ namespace povclr
 		{
 			auto obj = new pov::Triangle();
 
-			obj->P1 = P1->ToVector();
-			obj->P2 = P2->ToVector();
-			obj->P3 = P3->ToVector();
+			obj->P1 = P1.ToVector();
+			obj->P2 = P2.ToVector();
+			obj->P3 = P3.ToVector();
 
 			if (!obj->Compute_Triangle())
 			{

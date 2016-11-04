@@ -11,12 +11,12 @@ namespace povclr
 	{
 	public:
 		bool Hollow = false;
-		double IOR;
-		double Dispersion;
-		double Caustics;
-		double FadeDistance;
-		double FadePower;
-		RGB ^FadeColour;
+		float IOR;
+		float Dispersion;
+		float Caustics;
+		float FadeDistance;
+		float FadePower;
+		RGB FadeColour;
 		// TODO: vector<Media> media;
 		// TODO: shared_ptr<SubsurfaceInterior> subsurface;
 	};

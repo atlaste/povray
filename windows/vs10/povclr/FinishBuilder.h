@@ -35,38 +35,38 @@ namespace povclr
 	public:
 		FinishBuilder ^Ambient(RGB^ color);
 
-		FinishBuilder ^Brilliance(double amount);
+		FinishBuilder ^Brilliance(float amount);
 
-		FinishBuilder ^Brilliance(double amount, double out);
+		FinishBuilder ^Brilliance(float amount, float out);
 
 		FinishBuilder ^ConserveEnergy();
 
-		FinishBuilder ^Crand(double amount);
+		FinishBuilder ^Crand(float amount);
 
-		FinishBuilder ^Diffuse(bool albedo, double amount, double backsideIllumination);
+		FinishBuilder ^Diffuse(bool albedo, float amount, float backsideIllumination);
 
-		FinishBuilder ^Diffuse(double amount);
+		FinishBuilder ^Diffuse(float amount);
 
 		FinishBuilder ^Emission(RGB^ color);
 
-		FinishBuilder ^Irid(double amount, double thickness, double turbulence);
+		FinishBuilder ^Irid(float amount, float thickness, float turbulence);
 
-		FinishBuilder ^Metallic(double amount);
+		FinishBuilder ^Metallic(float amount);
 
-		FinishBuilder ^Phong(bool albedo, double amount, double size);
+		FinishBuilder ^Phong(bool albedo, float amount, float size);
 
-		FinishBuilder ^Phong(double amount);
+		FinishBuilder ^Phong(float amount);
 
 		FinishBuilder ^Reflection(RGB^ color);
 
-		FinishBuilder ^Reflection(RGB^ minColor, RGB ^maxColor, double falloff);
+		FinishBuilder ^Reflection(RGB^ minColor, RGB maxColor, float falloff);
 
-		FinishBuilder ^Roughness(double amount);
+		FinishBuilder ^Roughness(float amount);
 
-		FinishBuilder ^Specular(bool albedo, double amount);
+		FinishBuilder ^Specular(bool albedo, float amount);
 
-		FinishBuilder ^Specular(double amount);
+		FinishBuilder ^Specular(float amount);
 
-		FinishBuilder ^SubSurface(RGB^ translucency, RGB ^anisotropy);
+		FinishBuilder ^SubSurface(RGB^ translucency, RGB anisotropy);
 	};
 }

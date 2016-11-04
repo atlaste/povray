@@ -18,16 +18,16 @@ namespace povclr
 		}
 
 	public:
-		Specular(bool albedo, double amount) :
+		Specular(bool albedo, float amount) :
 			Albedo(albedo),
 			Amount(amount)
 		{}
 
-		Specular(double amount) :
+		Specular(float amount) :
 			Albedo(false)
 		{}
 
 		bool Albedo;
-		double Amount;
+		float Amount;
 	};
 }

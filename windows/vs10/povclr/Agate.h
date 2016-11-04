@@ -37,12 +37,12 @@ namespace povclr
 			Turbulence(1.0)
 		{}
 
-		Agate(double turbulence, ColorMap^ colorMap) :
+		Agate(float turbulence, ColorMap^ colorMap) :
 			Turbulence(turbulence),
 			ColorMap(colorMap)
 		{}
 
-		double Turbulence;
+		float Turbulence;
 
 		ColorMap^ ColorMap;
 	};

@@ -15,9 +15,9 @@ namespace povclr
 	public ref class SuperEllipsoid : CSGObject
 	{
 	public:
-		Vector2 ^Power;
+		Vector2 Power;
 
-		SuperEllipsoid(Vector2 ^power) :
+		SuperEllipsoid(Vector2 power) :
 			Power(power)
 		{}
 
@@ -25,7 +25,7 @@ namespace povclr
 		{
 			auto obj = new pov::Superellipsoid();
 
-			auto v1 = Power->ToVector();
+			auto v1 = Power.ToVector();
 
 			obj->Power[0] = 2.0 / v1[0];
 			obj->Power[1] = v1[0] / v1[1];

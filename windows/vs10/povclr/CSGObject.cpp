@@ -3,6 +3,16 @@
 
 namespace povclr
 {
+	inline float minval(float lhs, float rhs)
+	{
+		return lhs < rhs ? lhs : rhs;
+	}
+
+	inline float maxval(float lhs, float rhs)
+	{
+		return lhs > rhs ? lhs : rhs;
+	}
+
 	void CSGObject::RenderDetail(Context^ context, pov::ObjectBase* obj)
 	{
 		// Add the properties and flags to the object:
@@ -24,7 +34,7 @@ namespace povclr
 			Clear_Flag(obj, PH_TARGET_FLAG);
 		}
 
-		if (!double::IsNaN(Refraction))
+		if (!float::IsNaN(Refraction))
 		{
 			if (Refraction > 0.0)
 			{
@@ -39,7 +49,7 @@ namespace povclr
 			}
 		}
 
-		if (!double::IsNaN(Reflection))
+		if (!float::IsNaN(Reflection))
 		{
 			if (Reflection > 0.0)
 			{
@@ -105,12 +115,12 @@ namespace povclr
 			{
 				if (!Test_Flag((*Sib), INVERTED_FLAG))
 				{
-					min[0] = std::max(min[0], double((*Sib)->BBox.lowerLeft[0]));
-					min[1] = std::max(min[1], double((*Sib)->BBox.lowerLeft[1]));
-					min[2] = std::max(min[2], double((*Sib)->BBox.lowerLeft[2]));
-					max[0] = std::min(max[0], double((*Sib)->BBox.lowerLeft[0] + (*Sib)->BBox.size[0]));
-					max[1] = std::min(max[1], double((*Sib)->BBox.lowerLeft[1] + (*Sib)->BBox.size[1]));
-					max[2] = std::min(max[2], double((*Sib)->BBox.lowerLeft[2] + (*Sib)->BBox.size[2]));
+					min[0] = maxval(min[0], float((*Sib)->BBox.lowerLeft[0]));
+					min[1] = maxval(min[1], float((*Sib)->BBox.lowerLeft[1]));
+					min[2] = maxval(min[2], float((*Sib)->BBox.lowerLeft[2]));
+					max[0] = minval(max[0], float((*Sib)->BBox.lowerLeft[0] + (*Sib)->BBox.size[0]));
+					max[1] = minval(max[1], float((*Sib)->BBox.lowerLeft[1] + (*Sib)->BBox.size[1]));
+					max[2] = minval(max[2], float((*Sib)->BBox.lowerLeft[2] + (*Sib)->BBox.size[2]));
 				}
 			}
 
@@ -146,12 +156,12 @@ namespace povclr
 			{
 				if (!Test_Flag((*Sib), INVERTED_FLAG))
 				{
-					min[0] = std::max(min[0], double((*Sib)->BBox.lowerLeft[0]));
-					min[1] = std::max(min[1], double((*Sib)->BBox.lowerLeft[1]));
-					min[2] = std::max(min[2], double((*Sib)->BBox.lowerLeft[2]));
-					max[0] = std::min(max[0], double((*Sib)->BBox.lowerLeft[0] + (*Sib)->BBox.size[0]));
-					max[1] = std::min(max[1], double((*Sib)->BBox.lowerLeft[1] + (*Sib)->BBox.size[1]));
-					max[2] = std::min(max[2], double((*Sib)->BBox.lowerLeft[2] + (*Sib)->BBox.size[2]));
+					min[0] = maxval(min[0], float((*Sib)->BBox.lowerLeft[0]));
+					min[1] = maxval(min[1], float((*Sib)->BBox.lowerLeft[1]));
+					min[2] = maxval(min[2], float((*Sib)->BBox.lowerLeft[2]));
+					max[0] = minval(max[0], float((*Sib)->BBox.lowerLeft[0] + (*Sib)->BBox.size[0]));
+					max[1] = minval(max[1], float((*Sib)->BBox.lowerLeft[1] + (*Sib)->BBox.size[1]));
+					max[2] = minval(max[2], float((*Sib)->BBox.lowerLeft[2] + (*Sib)->BBox.size[2]));
 				}
 			}
 

@@ -15,12 +15,12 @@ namespace povclr
 	public ref class Cone : CSGObject
 	{
 	public:
-		Vector3 ^Base;
-		double BaseRadius;
-		Vector3 ^Apex;
-		double ApexRadius;
+		Vector3 Base;
+		float BaseRadius;
+		Vector3 Apex;
+		float ApexRadius;
 
-		Cone(Vector3 ^base, double baseRadius, Vector3 ^apex, double apexRadius) :
+		Cone(Vector3 base, float baseRadius, Vector3 apex, float apexRadius) :
 			Base(base),
 			BaseRadius(baseRadius),
 			Apex(apex),
@@ -30,9 +30,9 @@ namespace povclr
 		virtual void Render(Context^ context) override
 		{
 			auto obj = new pov::Cone();
-			obj->base = Base->ToVector();
+			obj->base = Base.ToVector();
 			obj->base_radius = BaseRadius;
-			obj->apex = Apex->ToVector();
+			obj->apex = Apex.ToVector();
 			obj->apex_radius = ApexRadius;
 
 			obj->Compute_BBox();

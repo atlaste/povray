@@ -43,11 +43,11 @@ namespace povclr
 		int Quality = 9;
 
 		int TracingMethod = 0;
-		double JitterScale = 1.0;
+		float JitterScale = 1.0;
 		bool Jitter = false;
-		double AAThreshold = 0.3;
+		float AAThreshold = 0.3;
 		int AADepth = 3;
-		double AAGammaValue = 1.0;
+		float AAGammaValue = 1.0;
 
 		bool RadiosityEnabled = false;
 

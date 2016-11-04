@@ -18,10 +18,10 @@ namespace povclr
 	public ref class Ovus : CSGObject
 	{
 	public:
-		double TopRadius;
-		double BottomRadius;
+		float TopRadius;
+		float BottomRadius;
 
-		Ovus(double topRadius, double bottomRadius) : 
+		Ovus(float topRadius, float bottomRadius) : 
 			TopRadius(topRadius),
 			BottomRadius(bottomRadius)
 		{}

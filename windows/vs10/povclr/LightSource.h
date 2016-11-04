@@ -13,13 +13,13 @@ namespace povclr
 	public ref class LightSource : public SceneObject
 	{
 	public:
-		LightSource(Vector3^ location, RGB^ color) :
+		LightSource(Vector3 location, RGB color) :
 			Location(location),
 			Color(color)
 		{}
 
-		Vector3^ Location;
-		RGB^ Color;
+		Vector3 Location;
+		RGB Color;
 
 		virtual void Render(Context^ context) override;
 	};

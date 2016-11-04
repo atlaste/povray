@@ -54,7 +54,7 @@ namespace povclr
 			}
 		}
 
-		virtual void SetPixel(int x, int y, double red, double green, double blue, double alpha) 
+		virtual void SetPixel(int x, int y, float red, float green, float blue, float alpha) 
 		{
 			uint8_t* baseptr = (uint8_t*)(bmpData->Scan0.ToPointer());
 			uint8_t* ptr = baseptr + (y * bmpData->Stride + x * (32 / 8));

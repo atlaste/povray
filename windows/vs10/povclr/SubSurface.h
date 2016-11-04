@@ -20,7 +20,7 @@ namespace povclr
 		}
 
 	public:
-		SubSurface(RGB^ translucency, RGB ^anisotropy) :
+		SubSurface(RGB^ translucency, RGB anisotropy) :
 			Translucency(translucency),
 			Anisotropy(anisotropy)
 		{}

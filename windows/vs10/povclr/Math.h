@@ -7,13 +7,13 @@ namespace povclr
 	public value class Vector3
 	{
 	public:
-		Vector3(double x, double y, double z) :
+		Vector3(float x, float y, float z) :
 			X(x), Y(y), Z(z)
 		{}
 
-		double X;
-		double Y;
-		double Z;
+		float X;
+		float Y;
+		float Z;
 
 	internal:
 		pov::Vector3d ToVector() { return pov::Vector3d(X, Y, Z); }
@@ -22,12 +22,12 @@ namespace povclr
 	public value class Vector2
 	{
 	public:
-		Vector2(double x, double y) :
+		Vector2(float x, float y) :
 			X(x), Y(y)
 		{}
 
-		double X;
-		double Y;
+		float X;
+		float Y;
 
 	internal:
 		pov::Vector2d ToVector() { return pov::Vector2d(X, Y); }
@@ -36,7 +36,7 @@ namespace povclr
 	public ref class Matrix
 	{
 	private:
-		array<double>^ data = gcnew array<double>(16);
+		array<float>^ data = gcnew array<float>(16);
 
 	public:
 		Matrix()
@@ -57,12 +57,12 @@ namespace povclr
 			}
 		}
 
-		void Set(int x, int y, double value)
+		void Set(int x, int y, float value)
 		{
 			data[y * 4 + x] = value;
 		}
 
-		double Get(int x, int y)
+		float Get(int x, int y)
 		{
 			return data[y * 4 + x];
 		}

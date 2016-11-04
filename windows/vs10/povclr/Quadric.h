@@ -15,12 +15,12 @@ namespace povclr
 	public ref class Quadric : CSGObject
 	{
 	public:
-		Vector3 ^SquareTerms;
-		Vector3 ^MixedTerms;
-		Vector3 ^Terms;
-		double Constant;
+		Vector3 SquareTerms;
+		Vector3 MixedTerms;
+		Vector3 Terms;
+		float Constant;
 
-		Quadric(Vector3 ^squareTerms, Vector3 ^mixedTerms, Vector3 ^terms, double constant) :
+		Quadric(Vector3 squareTerms, Vector3 mixedTerms, Vector3 terms, float constant) :
 			SquareTerms(squareTerms), 
 			MixedTerms(mixedTerms),
 			Terms(terms),

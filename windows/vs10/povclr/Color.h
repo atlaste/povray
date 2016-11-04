@@ -17,15 +17,15 @@ namespace povclr
 			dst = tmp2.colour();
 		}
 	public:
-		RGB(double r, double g, double b) :
+		RGB(float r, float g, float b) :
 			Red(r),
 			Green(g),
 			Blue(b)
 		{}
 
-		double Red;
-		double Green;
-		double Blue;
+		float Red;
+		float Green;
+		float Blue;
 	};
 
 	public value class RGBFT : public IMapType
@@ -43,7 +43,7 @@ namespace povclr
 		}
 
 	public:
-		RGBFT(double r, double g, double b, double f, double t) :
+		RGBFT(float r, float g, float b, float f, float t) :
 			Red(r),
 			Green(g),
 			Blue(b),
@@ -51,7 +51,7 @@ namespace povclr
 			Transparency(t)
 		{}
 
-		RGBFT(double r, double g, double b) :
+		RGBFT(float r, float g, float b) :
 			Red(r),
 			Green(g),
 			Blue(b),
@@ -59,10 +59,10 @@ namespace povclr
 			Transparency(0)
 		{}
 
-		double Red;
-		double Green;
-		double Blue;
-		double Filter;
-		double Transparency;
+		float Red;
+		float Green;
+		float Blue;
+		float Filter;
+		float Transparency;
 	};
 }

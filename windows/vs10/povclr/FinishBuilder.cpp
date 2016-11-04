@@ -23,13 +23,13 @@ namespace povclr
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Brilliance(double amount)
+	FinishBuilder ^FinishBuilder::Brilliance(float amount)
 	{
 		Add(gcnew povclr::Brilliance(amount));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Brilliance(double amount, double out)
+	FinishBuilder ^FinishBuilder::Brilliance(float amount, float out)
 	{
 		Add(gcnew povclr::Brilliance(amount, out));
 		return this;
@@ -41,19 +41,19 @@ namespace povclr
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Crand(double amount)
+	FinishBuilder ^FinishBuilder::Crand(float amount)
 	{
 		Add(gcnew povclr::Crand(true));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Diffuse(bool albedo, double amount, double backsideIllumination)
+	FinishBuilder ^FinishBuilder::Diffuse(bool albedo, float amount, float backsideIllumination)
 	{
 		Add(gcnew povclr::Diffuse(albedo, amount, backsideIllumination));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Diffuse(double amount)
+	FinishBuilder ^FinishBuilder::Diffuse(float amount)
 	{
 		Add(gcnew povclr::Diffuse(amount));
 		return this;
@@ -65,25 +65,25 @@ namespace povclr
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Irid(double amount, double thickness, double turbulence)
+	FinishBuilder ^FinishBuilder::Irid(float amount, float thickness, float turbulence)
 	{
 		Add(gcnew povclr::Irid(amount, thickness, turbulence));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Metallic(double amount)
+	FinishBuilder ^FinishBuilder::Metallic(float amount)
 	{
 		Add(gcnew povclr::Metallic(amount));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Phong(bool albedo, double amount, double size)
+	FinishBuilder ^FinishBuilder::Phong(bool albedo, float amount, float size)
 	{
 		Add(gcnew povclr::Phong(albedo, amount, size));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Phong(double amount)
+	FinishBuilder ^FinishBuilder::Phong(float amount)
 	{
 		Add(gcnew povclr::Phong(amount));
 		return this;
@@ -95,31 +95,31 @@ namespace povclr
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Reflection(RGB^ minColor, RGB ^maxColor, double falloff)
+	FinishBuilder ^FinishBuilder::Reflection(RGB^ minColor, RGB maxColor, float falloff)
 	{
 		Add(gcnew povclr::Reflection(minColor, maxColor, falloff));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Roughness(double amount)
+	FinishBuilder ^FinishBuilder::Roughness(float amount)
 	{
 		Add(gcnew povclr::Roughness(amount));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Specular(bool albedo, double amount)
+	FinishBuilder ^FinishBuilder::Specular(bool albedo, float amount)
 	{
 		Add(gcnew povclr::Specular(albedo, amount));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::Specular(double amount)
+	FinishBuilder ^FinishBuilder::Specular(float amount)
 	{
 		Add(gcnew povclr::Specular(amount));
 		return this;
 	}
 
-	FinishBuilder ^FinishBuilder::SubSurface(RGB^ translucency, RGB ^anisotropy)
+	FinishBuilder ^FinishBuilder::SubSurface(RGB^ translucency, RGB anisotropy)
 	{
 		Add(gcnew povclr::SubSurface(translucency, anisotropy));
 		return this;

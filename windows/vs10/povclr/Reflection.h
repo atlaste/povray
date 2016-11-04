@@ -32,7 +32,7 @@ namespace povclr
 			Metallic(0.0)
 		{}
 
-		Reflection(RGB^ minColor, RGB ^maxColor, double falloff) :
+		Reflection(RGB^ minColor, RGB maxColor, float falloff) :
 			MinColor(minColor),
 			MaxColor(maxColor),
 			Falloff(falloff),
@@ -43,9 +43,9 @@ namespace povclr
 
 		RGB^ MinColor;
 		RGB^ MaxColor;
-		double Falloff;
+		float Falloff;
 		bool Fresnel;
-		double Exponent;
-		double Metallic;
+		float Exponent;
+		float Metallic;
 	};
 }

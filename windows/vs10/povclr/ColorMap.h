@@ -17,7 +17,7 @@ namespace povclr
 	struct ColorMapDetail
 	{
 		template <typename MapType>
-		static std::shared_ptr<MapType> Render(gcroot<Context^> context, std::vector<pov::ColourBlendMapEntry>& tempList, int blendMode, double blendGamma);
+		static std::shared_ptr<MapType> Render(gcroot<Context^> context, std::vector<pov::ColourBlendMapEntry>& tempList, int blendMode, float blendGamma);
 	};
 
 	public enum class ColorMapBlendMode
@@ -30,12 +30,12 @@ namespace povclr
 	public ref class ColorMapEntry
 	{
 	public:
-		ColorMapEntry(double offset, RGBFT ^color) :
+		ColorMapEntry(float offset, RGBFT color) :
 			Offset(offset),
 			Color(color)
 		{}
 
-		double Offset;
+		float Offset;
 		RGBFT^ Color;
 	};
 	
@@ -61,16 +61,16 @@ namespace povclr
 
 	public:
 		ColorMap() : BlendMode(ColorMapBlendMode::LinearBlending),
-			BlendGamma(double::NaN) 
+			BlendGamma(float::NaN) 
 		{}
 
 		ColorMap(... array<ColorMapEntry^>^ args) : 
 			List<ColorMapEntry^>(args),
 			BlendMode(ColorMapBlendMode::LinearBlending),
-			BlendGamma(double::NaN)
+			BlendGamma(float::NaN)
 		{}
 
 		ColorMapBlendMode BlendMode;
-		double BlendGamma; // TODO FIXME: it's actually a bit more complex than a simple double.
+		float BlendGamma; // TODO FIXME: it's actually a bit more complex than a simple float.
 	};
 }

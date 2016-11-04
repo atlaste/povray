@@ -18,17 +18,17 @@ namespace povclr
 		}
 
 	public:
-		Brilliance(double amount) :
+		Brilliance(float amount) :
 			Amount(amount),
 			Out(1.0)
 		{}
 
-		Brilliance(double amount, double out) :
+		Brilliance(float amount, float out) :
 			Amount(amount),
 			Out(out)
 		{}
 
-		double Amount;
-		double Out;
+		float Amount;
+		float Out;
 	};
 }
