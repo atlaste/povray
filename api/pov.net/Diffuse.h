@@ -7,32 +7,38 @@
 
 namespace povray
 {
-	public ref class Diffuse : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			texture->Diffuse = float(Amount);
-			texture->DiffuseBack = float(BacksideIllumination);
+			public ref class Diffuse : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					texture->Diffuse = float(Amount);
+					texture->DiffuseBack = float(BacksideIllumination);
 
-			return Albedo ? FinishAdjustments::DiffuseAdjust : FinishAdjustments::None;
+					return Albedo ? FinishAdjustments::DiffuseAdjust : FinishAdjustments::None;
+				}
+
+			public:
+				Diffuse(bool albedo, float amount, float backsideIllumination) :
+					Albedo(albedo),
+					Amount(amount),
+					BacksideIllumination(backsideIllumination)
+				{}
+
+				Diffuse(float amount) :
+					Albedo(false),
+					Amount(amount),
+					BacksideIllumination(0.0)
+				{}
+
+				bool Albedo;
+				float Amount;
+				float BacksideIllumination;
+			};
 		}
-
-	public:
-		Diffuse(bool albedo, float amount, float backsideIllumination) :
-			Albedo(albedo),
-			Amount(amount),
-			BacksideIllumination(backsideIllumination)
-		{}
-
-		Diffuse(float amount) :
-			Albedo(false),
-			Amount(amount),
-			BacksideIllumination(0.0)
-		{}
-
-		bool Albedo;
-		float Amount;
-		float BacksideIllumination;
-	};
+	}
 }

@@ -16,49 +16,55 @@
 
 namespace povray
 {
-	public ref class HexagonBase abstract : public Pattern
+	namespace Materials
 	{
-	internal:
-		template <typename MapType, typename PatternType>
-		void Render(Context^ context, PatternType* container)
+		namespace Patterns
 		{
-			container->Type = pov::GENERIC_INTEGER_PATTERN;
-			auto pat = new pov::HexagonPattern();
-			container->pattern = pov::PatternPtr(pat);
+			public ref class HexagonBase abstract : public Pattern
+			{
+			internal:
+				template <typename MapType, typename PatternType>
+				void Render(Context^ context, PatternType* container)
+				{
+					container->Type = pov::GENERIC_INTEGER_PATTERN;
+					auto pat = new pov::HexagonPattern();
+					container->pattern = pov::PatternPtr(pat);
+				}
+			};
+
+			generic <typename BlendType>
+				where BlendType : IMapType
+				public ref class Hexagon : public HexagonBase, public ITargetType<BlendType>
+				{
+				internal:
+					virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
+					{
+						Render<pov::GenericPigmentBlendMap, pov::PIGMENT>(context, pigment);
+						pigment->Blend_Map = BlendMapBase::CreateBlendMap<pov::PigmentBlendMap>(context, pov::kBlendMapType_Pigment, Blend1, Blend2, Blend3);
+					}
+
+					virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
+					{
+						Render<pov::GenericNormalBlendMap, pov::TNORMAL>(context, normal);
+						normal->Delta = 0.02;
+						normal->Blend_Map = BlendMapBase::CreateBlendMap<pov::NormalBlendMap>(context, pov::kBlendMapType_Normal, Blend1, Blend2, Blend3);
+					}
+
+					virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override
+					{
+						Render<pov::TextureBlendMap, pov::TEXTURE>(context, texture);
+						texture->Blend_Map = BlendMapBase::CreateBlendMap<pov::TextureBlendMap>(context, pov::kBlendMapType_Texture, Blend1, Blend2, Blend3);
+					}
+
+				public:
+					Hexagon(BlendType blend1, BlendType blend2, BlendType blend3) :
+						Blend1(blend1), Blend2(blend2), Blend3(blend3)
+					{}
+
+					BlendType Blend1;
+					BlendType Blend2;
+					BlendType Blend3;
+				};
 		}
-	};
-
-	generic <typename BlendType>
-	where BlendType : IMapType
-	public ref class Hexagon : public HexagonBase, public ITargetType<BlendType>
-	{
-	internal:
-		virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
-		{
-			Render<pov::GenericPigmentBlendMap, pov::PIGMENT>(context, pigment);
-			pigment->Blend_Map = BlendMapBase::CreateBlendMap<pov::PigmentBlendMap>(context, pov::kBlendMapType_Pigment, Blend1, Blend2, Blend3);
-		}
-
-		virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
-		{
-			Render<pov::GenericNormalBlendMap, pov::TNORMAL>(context, normal);
-			normal->Delta = 0.02;
-			normal->Blend_Map = BlendMapBase::CreateBlendMap<pov::NormalBlendMap>(context, pov::kBlendMapType_Normal, Blend1, Blend2, Blend3);
-		}
-
-		virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override
-		{
-			Render<pov::TextureBlendMap, pov::TEXTURE>(context, texture);
-			texture->Blend_Map = BlendMapBase::CreateBlendMap<pov::TextureBlendMap>(context, pov::kBlendMapType_Texture, Blend1, Blend2, Blend3);
-		}
-
-	public:
-		Hexagon(BlendType blend1, BlendType blend2, BlendType blend3) :
-			Blend1(blend1), Blend2(blend2), Blend3(blend3)
-		{}
-
-		BlendType Blend1;
-		BlendType Blend2;
-		BlendType Blend3;
-	};
+	}
 }

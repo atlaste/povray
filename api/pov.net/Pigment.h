@@ -12,23 +12,26 @@
 
 namespace povray
 {
-	public ref class Pigment : public IMapType
+	namespace Materials
 	{
-	internal:
-		void Render(Context^ context, pov::PIGMENT* pigment)
+		public ref class Pigment : public IMapType
 		{
-			Pattern->RenderPigmentBlendMap(context, pigment);
-		}
+		internal:
+			void Render(Context^ context, pov::PIGMENT* pigment)
+			{
+				Pattern->RenderPigmentBlendMap(context, pigment);
+			}
 
-	public:
-		Pigment(RGBFT color) :
-			Pattern(gcnew PlainPattern(color))
-		{}
+		public:
+			Pigment(RGBFT color) :
+				Pattern(gcnew Patterns::PlainPattern(color))
+			{}
 
-		Pigment(ITargetType<Pigment^> ^pattern) :
-			Pattern((povray::Pattern^) pattern)
-		{}
+			Pigment(ITargetType<Pigment^> ^pattern) :
+				Pattern((Materials::Pattern^) pattern)
+			{}
 
-		Pattern^ Pattern;
-	};
+			Pattern^ Pattern;
+		};
+	}
 }

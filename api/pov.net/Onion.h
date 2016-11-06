@@ -14,21 +14,27 @@
 
 namespace povray
 {
-	public ref class Onion : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+	namespace Materials
 	{
-	internal:
-		template <typename MapType, typename PatternType>
-		void Render(Context^ context, PatternType* container)
+		namespace Patterns
 		{
-			container->Type = pov::GENERIC_PATTERN;
-			auto pat = new pov::OnionPattern();
-			container->pattern = pov::PatternPtr(pat);
+			public ref class Onion : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+			{
+			internal:
+				template <typename MapType, typename PatternType>
+				void Render(Context^ context, PatternType* container)
+				{
+					container->Type = pov::GENERIC_PATTERN;
+					auto pat = new pov::OnionPattern();
+					container->pattern = pov::PatternPtr(pat);
+				}
+
+				IMPLEMENT_DEFAULT_PATTERN_CODE
+
+			public:
+				Onion()
+				{}
+			};
 		}
-
-		IMPLEMENT_DEFAULT_PATTERN_CODE
-
-	public:
-		Onion()
-		{}
-	};
+	}
 }

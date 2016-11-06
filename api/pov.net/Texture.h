@@ -11,61 +11,64 @@
 
 namespace povray
 {
-	public ref class Texture : public IMapType
+	namespace Materials
 	{
-	internal:
-		void RenderDetail(Context^ context, pov::TEXTURE* texture)
+		public ref class Texture : public IMapType
 		{
-			if (Next != nullptr)
+		internal:
+			void RenderDetail(Context^ context, pov::TEXTURE* texture)
 			{
-				texture->Next = pov::Copy_Textures(context->defaultTexture);
-				Next->RenderDetail(context, texture->Next);
-			}
-
-			if (Pigment != nullptr)
-			{
-				if (texture->Pigment == nullptr)
+				if (Next != nullptr)
 				{
-					texture->Pigment = pov::Copy_Pigment(context->defaultTexture->Pigment);
+					texture->Next = pov::Copy_Textures(context->defaultTexture);
+					Next->RenderDetail(context, texture->Next);
 				}
 
-				Pigment->Render(context, texture->Pigment);
-			}
-			
-			// TODO FIXME: TNormal is also a pattern
-			// TODO FIXME: Next?
-			// TODO FIXME: Materials
-
-			// Apply finish:
-			if (finish != nullptr)
-			{
-				for each (povray::Finish^ fin in finish)
+				if (Pigment != nullptr)
 				{
-					fin->Render(texture->Finish);
+					if (texture->Pigment == nullptr)
+					{
+						texture->Pigment = pov::Copy_Pigment(context->defaultTexture->Pigment);
+					}
+
+					Pigment->Render(context, texture->Pigment);
+				}
+
+				// TODO FIXME: TNormal is also a pattern
+				// TODO FIXME: Next?
+				// TODO FIXME: Materials
+
+				// Apply finish:
+				if (finish != nullptr)
+				{
+					for each (povray::Materials::Finish^ fin in finish)
+					{
+						fin->Render(texture->Finish);
+					}
 				}
 			}
-		}
 
-		FinishBuilder^ finish;
+			FinishBuilder^ finish;
 
-	public:
-		Texture() :
-			finish(nullptr)
-		{}
+		public:
+			Texture() :
+				finish(nullptr)
+			{}
 
-		Texture ^Next;
-		Pigment ^Pigment;
-		Normal ^TNormal;
+			Texture ^Next;
+			Pigment ^Pigment;
+			Normal ^TNormal;
 
-		property FinishBuilder ^Finish
-		{
-			FinishBuilder ^get()
+			property FinishBuilder ^Finish
 			{
-				if (finish == nullptr) { finish = gcnew FinishBuilder(); }
-				return finish;
+				FinishBuilder ^get()
+				{
+					if (finish == nullptr) { finish = gcnew FinishBuilder(); }
+					return finish;
+				}
 			}
-		}
 
-		List<Texture^> ^Materials;
-	};
+			List<Texture^> ^Materials;
+		};
+	}
 }

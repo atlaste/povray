@@ -7,20 +7,26 @@
 
 namespace povray
 {
-	public ref class ConserveEnergy : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			texture->Conserve_Energy = Enable;
-			return FinishAdjustments::None;
+			public ref class ConserveEnergy : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					texture->Conserve_Energy = Enable;
+					return FinishAdjustments::None;
+				}
+
+			public:
+				ConserveEnergy(bool enable) :
+					Enable(enable)
+				{}
+
+				bool Enable;
+			};
 		}
-
-	public:
-		ConserveEnergy(bool enable) :
-			Enable(enable)
-		{}
-
-		bool Enable;
-	};
+	}
 }

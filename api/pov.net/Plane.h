@@ -2,7 +2,7 @@
 
 #include "Context.h"
 #include "Settings.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Math.h"
 
 #include "core/shape/plane.h"
@@ -12,33 +12,36 @@ using namespace System::Collections::Generic;
 
 namespace povray
 {
-	public ref class Plane : CSGObject
+	namespace Shapes
 	{
-	public:
-		Vector3 Normal;
-		float Distance;
-
-		Plane(Vector3 normal, float distance) :
-			Normal(normal),
-			Distance(distance)
-		{}
-
-		virtual void Render(Context^ context) override
+		public ref class Plane : Shape
 		{
-			auto obj = new pov::Plane();
-			obj->Normal_Vector = Normal.ToVector();
-			obj->Distance = -Distance;
+		public:
+			Vector3 Normal;
+			float Distance;
 
-			auto len = obj->Normal_Vector.length();
-			if (len < EPSILON)
+			Plane(Vector3 normal, float distance) :
+				Normal(normal),
+				Distance(distance)
+			{}
+
+			virtual void Render(Context^ context) override
 			{
-				context->Error("Degenerate plane normal.");
+				auto obj = new pov::Plane();
+				obj->Normal_Vector = Normal.ToVector();
+				obj->Distance = -Distance;
+
+				auto len = obj->Normal_Vector.length();
+				if (len < EPSILON)
+				{
+					context->Error("Degenerate plane normal.");
+				}
+				obj->Normal_Vector /= len;
+
+				obj->Compute_BBox();
+
+				Shape::RenderDetail(context, obj);
 			}
-			obj->Normal_Vector /= len;
-
-			obj->Compute_BBox();
-
-			CSGObject::RenderDetail(context, obj);
-		}
-	};
+		};
+	}
 }

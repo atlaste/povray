@@ -1,4 +1,8 @@
 ﻿using povray;
+using povray.Shapes;
+using povray.Materials;
+using povray.Materials.Finishes;
+using povray.Materials.Patterns;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

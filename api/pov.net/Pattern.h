@@ -7,36 +7,38 @@
 
 namespace povray
 {
-	public ref class Pattern abstract
+	namespace Materials
 	{
-	internal:
-		virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) = 0;
-		virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) = 0;
-		virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) = 0;
-
-		pov::ClassicTurbulence *CheckTurbulence(pov::WarpList& warps, bool patternHandlesTurbulence)
+		public ref class Pattern abstract
 		{
-			pov::ClassicTurbulence* turb = NULL;
+		internal:
+			virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) = 0;
+			virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) = 0;
+			virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) = 0;
 
-			if (!warps.empty())
+			pov::ClassicTurbulence *CheckTurbulence(pov::WarpList& warps, bool patternHandlesTurbulence)
 			{
-				turb = dynamic_cast<pov::ClassicTurbulence*>(warps.front());
+				pov::ClassicTurbulence* turb = NULL;
+
+				if (!warps.empty())
+				{
+					turb = dynamic_cast<pov::ClassicTurbulence*>(warps.front());
+				}
+
+				if (!turb)
+				{
+					turb = new pov::ClassicTurbulence(patternHandlesTurbulence);
+					warps.insert(warps.begin(), turb);
+				}
+
+				return turb;
 			}
 
-			if (!turb)
-			{
-				turb = new pov::ClassicTurbulence(patternHandlesTurbulence);
-				warps.insert(warps.begin(), turb);
-			}
-
-			return turb;
-		}
-
-	public:
-		Pattern() {}
-	};
+		public:
+			Pattern() {}
+		};
+	}
 }
-
 #define IMPLEMENT_DEFAULT_PATTERN_CODE \
 virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override { Render<pov::GenericPigmentBlendMap, pov::PIGMENT>(context, pigment); } \
 virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override { Render<pov::GenericNormalBlendMap, pov::TNORMAL>(context, normal); } \

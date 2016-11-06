@@ -2,7 +2,7 @@
 
 #include "Context.h"
 #include "Settings.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Math.h"
 
 #include "core/shape/lemon.h"
@@ -14,23 +14,26 @@ using namespace System::Collections::Generic;
 
 namespace povray
 {
-	public ref class Lemon : CSGObject
+	namespace Shapes
 	{
-	public:
-		Vector3 Base;
-		float BaseRadius;
-		Vector3 Apex;
-		float ApexRadius;
-		float InnerRadius;
+		public ref class Lemon : Shape
+		{
+		public:
+			Vector3 Base;
+			float BaseRadius;
+			Vector3 Apex;
+			float ApexRadius;
+			float InnerRadius;
 
-		Lemon(Vector3 base, float baseRadius, Vector3 apex, float apexRadius, float innerRadius) :
-			Base(base),
-			BaseRadius(baseRadius),
-			Apex(apex),
-			ApexRadius(apexRadius),
-			InnerRadius(innerRadius)
-		{}
+			Lemon(Vector3 base, float baseRadius, Vector3 apex, float apexRadius, float innerRadius) :
+				Base(base),
+				BaseRadius(baseRadius),
+				Apex(apex),
+				ApexRadius(apexRadius),
+				InnerRadius(innerRadius)
+			{}
 
-		virtual void Render(Context^ context) override;
-	};
+			virtual void Render(Context^ context) override;
+		};
+	}
 }

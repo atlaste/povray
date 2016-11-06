@@ -15,44 +15,50 @@
 
 namespace povray
 {
-	public ref class Crackle : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+	namespace Materials
 	{
-	internal:
-		template <typename MapType, typename PatternType>
-		void Render(Context^ context, PatternType* container)
+		namespace Patterns
 		{
-			container->Type = pov::CRACKLE_PATTERN;
-			auto pat = new pov::CracklePattern();
-			pat->crackleIsSolid = 0;
-			pat->crackleForm = Form.ToVector();
-			pat->crackleMetric = Metric;
-			pat->crackleOffset = Offset;
-			container->pattern = pov::PatternPtr(pat);
+			public ref class Crackle : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+			{
+			internal:
+				template <typename MapType, typename PatternType>
+				void Render(Context^ context, PatternType* container)
+				{
+					container->Type = pov::CRACKLE_PATTERN;
+					auto pat = new pov::CracklePattern();
+					pat->crackleIsSolid = 0;
+					pat->crackleForm = Form.ToVector();
+					pat->crackleMetric = Metric;
+					pat->crackleOffset = Offset;
+					container->pattern = pov::PatternPtr(pat);
+				}
+
+				IMPLEMENT_DEFAULT_PATTERN_CODE
+
+			public:
+				Crackle() :
+					Form(Vector3(-1, 1, 0)),
+					Metric(2),
+					Offset(0)
+				{}
+
+				Crackle(Vector3 form) :
+					Form(form),
+					Metric(2),
+					Offset(0)
+				{}
+
+				Crackle(Vector3 form, float metric, float offset) :
+					Form(form),
+					Metric(metric),
+					Offset(offset)
+				{}
+
+				Vector3 Form;
+				float Metric;
+				float Offset;
+			};
 		}
-
-		IMPLEMENT_DEFAULT_PATTERN_CODE
-
-	public:
-		Crackle() :
-			Form(Vector3(-1, 1, 0)),
-			Metric(2),
-			Offset(0)
-		{}
-		
-		Crackle(Vector3 form) :
-			Form(form),
-			Metric(2),
-			Offset(0)
-		{}
-
-		Crackle(Vector3 form, float metric, float offset) : 
-			Form(form),
-			Metric(metric),
-			Offset(offset)
-		{}
-
-		Vector3 Form;
-		float Metric;
-		float Offset;
-	};
+	}
 }

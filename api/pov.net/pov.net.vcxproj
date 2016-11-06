@@ -198,7 +198,7 @@
     <ClInclude Include="Context.h" />
     <ClInclude Include="Crackle.h" />
     <ClInclude Include="Crand.h" />
-    <ClInclude Include="CSGObject.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Cubic.h" />
     <ClInclude Include="Cylindrical.h" />
     <ClInclude Include="Dents.h" />
@@ -267,7 +267,7 @@
     <ClCompile Include="BlendMapBase.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="ColorMap.cpp" />
-    <ClCompile Include="CSGObject.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="FinishBuilder.cpp" />
     <ClCompile Include="Lemon.cpp" />
     <ClCompile Include="LightSource.cpp" />

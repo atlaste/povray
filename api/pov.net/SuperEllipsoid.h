@@ -2,7 +2,7 @@
 
 #include "Context.h"
 #include "Settings.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Math.h"
 
 #include "core/shape/superellipsoid.h"
@@ -12,28 +12,31 @@ using namespace System::Collections::Generic;
 
 namespace povray
 {
-	public ref class SuperEllipsoid : CSGObject
+	namespace Shapes
 	{
-	public:
-		Vector2 Power;
-
-		SuperEllipsoid(Vector2 power) :
-			Power(power)
-		{}
-
-		virtual void Render(Context^ context) override
+		public ref class SuperEllipsoid : Shape
 		{
-			auto obj = new pov::Superellipsoid();
+		public:
+			Vector2 Power;
 
-			auto v1 = Power.ToVector();
+			SuperEllipsoid(Vector2 power) :
+				Power(power)
+			{}
 
-			obj->Power[0] = 2.0 / v1[0];
-			obj->Power[1] = v1[0] / v1[1];
-			obj->Power[2] = 2.0 / v1[1];
+			virtual void Render(Context^ context) override
+			{
+				auto obj = new pov::Superellipsoid();
 
-			obj->Compute_BBox();
+				auto v1 = Power.ToVector();
 
-			CSGObject::RenderDetail(context, obj);
-		}
-	};
+				obj->Power[0] = 2.0 / v1[0];
+				obj->Power[1] = v1[0] / v1[1];
+				obj->Power[2] = 2.0 / v1[1];
+
+				obj->Compute_BBox();
+
+				Shape::RenderDetail(context, obj);
+			}
+		};
+	}
 }

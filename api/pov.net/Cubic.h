@@ -13,34 +13,40 @@
 
 namespace povray
 {
-	public ref class Cubic : public Pattern, public ITargetType<Texture^>
+	namespace Materials
 	{
-	internal:
-		virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
+		namespace Patterns
 		{
-			throw gcnew NotSupportedException();
-		}
-		virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
-		{
-			throw gcnew NotSupportedException();
-		}
-		virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override
-		{
-			texture->Type = pov::GENERIC_INTEGER_PATTERN;
-			texture->pattern = pov::PatternPtr(new pov::CubicPattern());
-			texture->Blend_Map = BlendMapBase::CreateBlendMap<pov::TextureBlendMap>(context, pov::kBlendMapType_Texture, Items);
-		}
-
-	public:
-		Cubic(array<Texture^>^ items) :
-			Items(items)
-		{
-			if (Items->Length != 6)
+			public ref class Cubic : public Pattern, public ITargetType<Texture^>
 			{
-				throw gcnew ArgumentException("Number of faces of a cubic must be 6.");
-			}
-		}
+			internal:
+				virtual void RenderPigmentBlendMap(Context^ context, pov::PIGMENT* pigment) override
+				{
+					throw gcnew NotSupportedException();
+				}
+				virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
+				{
+					throw gcnew NotSupportedException();
+				}
+				virtual void RenderTextureBlendMap(Context^ context, pov::TEXTURE* texture) override
+				{
+					texture->Type = pov::GENERIC_INTEGER_PATTERN;
+					texture->pattern = pov::PatternPtr(new pov::CubicPattern());
+					texture->Blend_Map = BlendMapBase::CreateBlendMap<pov::TextureBlendMap>(context, pov::kBlendMapType_Texture, Items);
+				}
 
-		array<Texture^>^ Items;
-	};
+			public:
+				Cubic(array<Texture^>^ items) :
+					Items(items)
+				{
+					if (Items->Length != 6)
+					{
+						throw gcnew ArgumentException("Number of faces of a cubic must be 6.");
+					}
+				}
+
+				array<Texture^>^ Items;
+			};
+		}
+	}
 }

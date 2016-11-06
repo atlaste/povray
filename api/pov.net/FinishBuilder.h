@@ -16,57 +16,60 @@
 
 namespace povray
 {
-	ref class Ambient;
-	ref class Brilliance;
-	ref class ConserveEnergy;
-	ref class Crand;
-	ref class Diffuse;
-	ref class Emission;
-	ref class Irid;
-	ref class Metallic;
-	ref class Phong;
-	ref class Reflection;
-	ref class Roughness;
-	ref class Specular;
-	ref class SubSurface;
-
-	public ref class FinishBuilder : public List<Finish^>
+	namespace Materials
 	{
-	public:
-		FinishBuilder ^Ambient(RGB^ color);
+		ref class Ambient;
+		ref class Brilliance;
+		ref class ConserveEnergy;
+		ref class Crand;
+		ref class Diffuse;
+		ref class Emission;
+		ref class Irid;
+		ref class Metallic;
+		ref class Phong;
+		ref class Reflection;
+		ref class Roughness;
+		ref class Specular;
+		ref class SubSurface;
 
-		FinishBuilder ^Brilliance(float amount);
+		public ref class FinishBuilder : public List<Finish^>
+		{
+		public:
+			FinishBuilder ^Ambient(RGB^ color);
 
-		FinishBuilder ^Brilliance(float amount, float out);
+			FinishBuilder ^Brilliance(float amount);
 
-		FinishBuilder ^ConserveEnergy();
+			FinishBuilder ^Brilliance(float amount, float out);
 
-		FinishBuilder ^Crand(float amount);
+			FinishBuilder ^ConserveEnergy();
 
-		FinishBuilder ^Diffuse(bool albedo, float amount, float backsideIllumination);
+			FinishBuilder ^Crand(float amount);
 
-		FinishBuilder ^Diffuse(float amount);
+			FinishBuilder ^Diffuse(bool albedo, float amount, float backsideIllumination);
 
-		FinishBuilder ^Emission(RGB^ color);
+			FinishBuilder ^Diffuse(float amount);
 
-		FinishBuilder ^Irid(float amount, float thickness, float turbulence);
+			FinishBuilder ^Emission(RGB^ color);
 
-		FinishBuilder ^Metallic(float amount);
+			FinishBuilder ^Irid(float amount, float thickness, float turbulence);
 
-		FinishBuilder ^Phong(bool albedo, float amount, float size);
+			FinishBuilder ^Metallic(float amount);
 
-		FinishBuilder ^Phong(float amount);
+			FinishBuilder ^Phong(bool albedo, float amount, float size);
 
-		FinishBuilder ^Reflection(RGB^ color);
+			FinishBuilder ^Phong(float amount);
 
-		FinishBuilder ^Reflection(RGB^ minColor, RGB maxColor, float falloff);
+			FinishBuilder ^Reflection(RGB^ color);
 
-		FinishBuilder ^Roughness(float amount);
+			FinishBuilder ^Reflection(RGB^ minColor, RGB maxColor, float falloff);
 
-		FinishBuilder ^Specular(bool albedo, float amount);
+			FinishBuilder ^Roughness(float amount);
 
-		FinishBuilder ^Specular(float amount);
+			FinishBuilder ^Specular(bool albedo, float amount);
 
-		FinishBuilder ^SubSurface(RGB^ translucency, RGB anisotropy);
-	};
+			FinishBuilder ^Specular(float amount);
+
+			FinishBuilder ^SubSurface(RGB^ translucency, RGB anisotropy);
+		};
+	}
 }

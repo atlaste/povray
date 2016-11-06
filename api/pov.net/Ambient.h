@@ -7,20 +7,26 @@
 
 namespace povray
 {
-	public ref class Ambient : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			Color->RenderDetail(texture->Ambient);
-			return FinishAdjustments::AmbientSet;
+			public ref class Ambient : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					Color->RenderDetail(texture->Ambient);
+					return FinishAdjustments::AmbientSet;
+				}
+
+			public:
+				Ambient(RGB^ color) :
+					Color(color)
+				{}
+
+				RGB^ Color;
+			};
 		}
-
-	public:
-		Ambient(RGB^ color) : 
-			Color(color)
-		{}
-
-		RGB^ Color;
-	};
+	}
 }

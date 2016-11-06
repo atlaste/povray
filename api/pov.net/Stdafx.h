@@ -7,6 +7,6 @@
 
 #include "Scene.h"
 #include "SceneObject.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Texture.h"
 #include "Context.h"

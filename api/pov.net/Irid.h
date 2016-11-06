@@ -7,34 +7,40 @@
 
 namespace povray
 {
-	public ref class Irid : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			if (Thickness != 0.0 && !float::IsNaN(Thickness))
+			public ref class Irid : public Finish
 			{
-				texture->Irid_Film_Thickness = float(Thickness);
-			}
-			if (Turbulence != 0.0 && !float::IsNaN(Turbulence))
-			{
-				texture->Irid_Turb = float(Turbulence);
-			}
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					if (Thickness != 0.0 && !float::IsNaN(Thickness))
+					{
+						texture->Irid_Film_Thickness = float(Thickness);
+					}
+					if (Turbulence != 0.0 && !float::IsNaN(Turbulence))
+					{
+						texture->Irid_Turb = float(Turbulence);
+					}
 
-			texture->Irid = float(Amount);
+					texture->Irid = float(Amount);
 
-			return FinishAdjustments::None;
+					return FinishAdjustments::None;
+				}
+
+			public:
+				Irid(float amount, float thickness, float turbulence) :
+					Amount(amount),
+					Thickness(thickness),
+					Turbulence(turbulence)
+				{}
+
+				float Amount;
+				float Thickness;
+				float Turbulence;
+			};
 		}
-
-	public:
-		Irid(float amount, float thickness, float turbulence) :
-			Amount(amount),
-			Thickness(thickness),
-			Turbulence(turbulence)
-		{}
-
-		float Amount;
-		float Thickness;
-		float Turbulence;
-	};
+	}
 }

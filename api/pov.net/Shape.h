@@ -14,7 +14,7 @@ using namespace System::Collections::Generic;
 namespace povray
 {
 	[Flags()]
-	public enum class CSGFlags : int
+	public enum class ShapeFlags : int
 	{
 		None = 0x00000000,
 		NoShadows = 0x00000001, /* Object doesn't cast shadows            */
@@ -48,7 +48,7 @@ namespace povray
 		CutawayTextures = 0x10000000  /* Object (or any of its parents) has cutaway_textures set */
 	};
 
-	public ref class CSGObject abstract : public SceneObject
+	public ref class Shape abstract : public SceneObject
 	{
 	internal:
 		void RenderDetail(Context^ context, pov::ObjectBase* obj);
@@ -59,14 +59,14 @@ namespace povray
 		float Refraction;
 		float Reflection;
 		float PassThrough;
-		Texture ^Surface;
-		Interior ^Interior;
-		Texture ^InteriorTexture;
+		Materials::Texture ^Surface;
+		Materials::Interior ^Interior;
+		Materials::Texture ^InteriorTexture;
 		float PhotonDensity;
 		float RadiosityImportance;
-		CSGFlags ^Flags;
+		ShapeFlags ^Flags;
 
-		CSGObject() :
+		Shape() :
 			UVMapping(false),
 			Refraction(float::NaN),
 			Reflection(float::NaN),
@@ -76,7 +76,7 @@ namespace povray
 			InteriorTexture(nullptr),
 			PhotonDensity(0),
 			RadiosityImportance(0),
-			Flags(CSGFlags::None)
+			Flags(ShapeFlags::None)
 		{}
 
 		virtual void Render(Context^ context) override = 0;

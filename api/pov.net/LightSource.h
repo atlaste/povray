@@ -2,7 +2,7 @@
 
 #include "Context.h"
 #include "Settings.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Math.h"
 
 using namespace System;

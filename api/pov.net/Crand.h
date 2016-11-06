@@ -7,20 +7,26 @@
 
 namespace povray
 {
-	public ref class Crand : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			texture->Crand = float(Amount);
-			return FinishAdjustments::None;
+			public ref class Crand : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					texture->Crand = float(Amount);
+					return FinishAdjustments::None;
+				}
+
+			public:
+				Crand(float amount) :
+					Amount(amount)
+				{}
+
+				float Amount;
+			};
 		}
-
-	public:
-		Crand(float amount) :
-			Amount(amount)
-		{}
-
-		float Amount;
-	};
+	}
 }

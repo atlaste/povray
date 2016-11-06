@@ -1,5 +1,5 @@
 #include "Stdafx.h"
-#include "CSGObject.h"
+#include "Shape.h"
 
 namespace povray
 {
@@ -13,7 +13,7 @@ namespace povray
 		return lhs > rhs ? lhs : rhs;
 	}
 
-	void CSGObject::RenderDetail(Context^ context, pov::ObjectBase* obj)
+	void Shape::RenderDetail(Context^ context, pov::ObjectBase* obj)
 	{
 		// Add the properties and flags to the object:
 

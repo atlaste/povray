@@ -7,25 +7,31 @@
 
 namespace povray
 {
-	public ref class SubSurface : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			Translucency->RenderDetail(texture->SubsurfaceTranslucency);
-			Anisotropy->RenderDetail(texture->SubsurfaceAnisotropy);
-			texture->UseSubsurface = true;
-			
-			return FinishAdjustments::None;
+			public ref class SubSurface : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					Translucency->RenderDetail(texture->SubsurfaceTranslucency);
+					Anisotropy->RenderDetail(texture->SubsurfaceAnisotropy);
+					texture->UseSubsurface = true;
+
+					return FinishAdjustments::None;
+				}
+
+			public:
+				SubSurface(RGB^ translucency, RGB anisotropy) :
+					Translucency(translucency),
+					Anisotropy(anisotropy)
+				{}
+
+				RGB^ Translucency;
+				RGB^ Anisotropy;
+			};
 		}
-
-	public:
-		SubSurface(RGB^ translucency, RGB anisotropy) :
-			Translucency(translucency),
-			Anisotropy(anisotropy)
-		{}
-
-		RGB^ Translucency;
-		RGB^ Anisotropy;
-	};
+	}
 }

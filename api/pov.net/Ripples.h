@@ -14,21 +14,27 @@
 
 namespace povray
 {
-	public ref class Ripples : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+	namespace Materials
 	{
-	internal:
-		template <typename MapType, typename PatternType>
-		void Render(Context^ context, PatternType* container)
+		namespace Patterns
 		{
-			container->Type = pov::RIPPLES_PATTERN;
-			auto pat = new pov::RipplesPattern();
-			container->pattern = pov::PatternPtr(pat);
+			public ref class Ripples : public Pattern, public ITargetType<Pigment^>, public ITargetType<Normal^>, public ITargetType<Texture^>
+			{
+			internal:
+				template <typename MapType, typename PatternType>
+				void Render(Context^ context, PatternType* container)
+				{
+					container->Type = pov::RIPPLES_PATTERN;
+					auto pat = new pov::RipplesPattern();
+					container->pattern = pov::PatternPtr(pat);
+				}
+
+				IMPLEMENT_DEFAULT_PATTERN_CODE
+
+			public:
+				Ripples()
+				{}
+			};
 		}
-
-		IMPLEMENT_DEFAULT_PATTERN_CODE
-
-	public:
-		Ripples()
-		{}
-	};
+	}
 }

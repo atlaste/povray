@@ -7,20 +7,26 @@
 
 namespace povray
 {
-	public ref class Metallic : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			texture->Metallic = float(Amount);
-			return FinishAdjustments::None;
+			public ref class Metallic : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					texture->Metallic = float(Amount);
+					return FinishAdjustments::None;
+				}
+
+			public:
+				Metallic(float amount) :
+					Amount(amount)
+				{}
+
+				float Amount;
+			};
 		}
-
-	public:
-		Metallic(float amount) :
-			Amount(amount)
-		{}
-
-		float Amount;
-	};
+	}
 }

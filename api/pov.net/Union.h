@@ -2,7 +2,7 @@
 
 #include "Context.h"
 #include "Settings.h"
-#include "CSGObject.h"
+#include "Shape.h"
 #include "Math.h"
 
 #include "core/shape/csg.h"
@@ -12,21 +12,24 @@ using namespace System::Collections::Generic;
 
 namespace povray
 {
-	public ref class Union : CSGObject
+	namespace Shapes
 	{
-	public:
-		List<CSGObject^> ^ Objects = gcnew List<CSGObject^>();
-
-		Union(... array<CSGObject^>^ args)
+		public ref class Union : Shape
 		{
-			Objects = gcnew List<CSGObject^>(args);
-		}
+		public:
+			List<Shape^> ^ Objects = gcnew List<Shape^>();
 
-		virtual void Render(Context^ context) override
-		{
-			// TODO FIXME
+			Union(... array<Shape^>^ args)
+			{
+				Objects = gcnew List<Shape^>(args);
+			}
 
-			throw gcnew NotImplementedException();
-		}
-	};
+			virtual void Render(Context^ context) override
+			{
+				// TODO FIXME
+
+				throw gcnew NotImplementedException();
+			}
+		};
+	}
 }

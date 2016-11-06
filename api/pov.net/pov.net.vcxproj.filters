@@ -8,20 +8,20 @@
     <Filter Include="Model">
       <UniqueIdentifier>{bc8a7c5c-fc26-4643-bc6e-7df7a18ecad8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Model\Material">
-      <UniqueIdentifier>{fd8186d2-fab2-477a-a5e0-14c6fb6fdb9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Model\Shape">
-      <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Model\Material\Finishes">
-      <UniqueIdentifier>{bafafcd4-4f4c-488d-9299-87e08711b032}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Model\Material\Patterns">
-      <UniqueIdentifier>{6d948aa5-82f0-4c5f-b9a9-32ab89128b72}</UniqueIdentifier>
-    </Filter>
     <Filter Include="API">
       <UniqueIdentifier>{86510bc9-9fcf-4059-92ba-d22f0bc90955}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Materials">
+      <UniqueIdentifier>{fd8186d2-fab2-477a-a5e0-14c6fb6fdb9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Materials\Patterns">
+      <UniqueIdentifier>{6d948aa5-82f0-4c5f-b9a9-32ab89128b72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Materials\Finishes">
+      <UniqueIdentifier>{bafafcd4-4f4c-488d-9299-87e08711b032}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Shapes">
+      <UniqueIdentifier>{b139c8b0-3e48-4c82-844f-ad13066fa120}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,27 +34,24 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Sphere.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Interior.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Pigment.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Normal.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Finish.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="CSGObject.h">
       <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="LightSource.h">
@@ -64,183 +61,183 @@
       <Filter>Model</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Cone.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Disc.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Lemon.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Ovus.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Plane.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Quadric.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="SuperEllipsoid.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Torus.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Triangle.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Union.h">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClInclude>
     <ClInclude Include="Transformation.h" />
     <ClInclude Include="Ambient.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Diffuse.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Emission.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Brilliance.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Phong.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Specular.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Roughness.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Metallic.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Reflection.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Crand.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="ConserveEnergy.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="SubSurface.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="Irid.h">
-      <Filter>Model\Material\Finishes</Filter>
+      <Filter>Model\Materials\Finishes</Filter>
     </ClInclude>
     <ClInclude Include="FinishBuilder.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="Agate.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Pattern.h">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClInclude>
     <ClInclude Include="ColorMap.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Boxed.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Bozo.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Brick.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="PlainPattern.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="IMapType.h" />
     <ClInclude Include="BlendMapBase.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Bumps.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Cells.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Checker.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Crackle.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Cubic.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Cylindrical.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Dents.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Facets.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Granite.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Hexagon.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="LeopardPattern.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Onion.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Planar.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Radial.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Ripples.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Slope.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Spherical.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Spiral1.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Spiral2.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Spotted.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Square.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Tiling.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Triangular.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Waves.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Wrinkles.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="Wood.h">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClInclude>
     <ClInclude Include="RenderCallback.h">
       <Filter>API</Filter>
@@ -250,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="SyncRendering.h">
       <Filter>API</Filter>
+    </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -262,9 +262,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Model</Filter>
     </ClCompile>
-    <ClCompile Include="CSGObject.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
     <ClCompile Include="LightSource.cpp">
       <Filter>Model</Filter>
     </ClCompile>
@@ -272,22 +269,25 @@
       <Filter>Model</Filter>
     </ClCompile>
     <ClCompile Include="Lemon.cpp">
-      <Filter>Model\Shape</Filter>
+      <Filter>Model\Shapes</Filter>
     </ClCompile>
     <ClCompile Include="FinishBuilder.cpp">
-      <Filter>Model\Material</Filter>
+      <Filter>Model\Materials</Filter>
     </ClCompile>
     <ClCompile Include="ColorMap.cpp">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClCompile>
     <ClCompile Include="BlendMapBase.cpp">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClCompile>
     <ClCompile Include="Patterns.cpp">
-      <Filter>Model\Material\Patterns</Filter>
+      <Filter>Model\Materials\Patterns</Filter>
     </ClCompile>
     <ClCompile Include="Api.cpp">
       <Filter>API</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>Model</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

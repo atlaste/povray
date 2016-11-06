@@ -7,28 +7,34 @@
 
 namespace povray
 {
-	public ref class Brilliance : public Finish
+	namespace Materials
 	{
-	internal:
-		virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+		namespace Finishes
 		{
-			texture->Brilliance = Amount;
-			texture->BrillianceOut = Out;
-			return FinishAdjustments::None;
+			public ref class Brilliance : public Finish
+			{
+			internal:
+				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
+				{
+					texture->Brilliance = Amount;
+					texture->BrillianceOut = Out;
+					return FinishAdjustments::None;
+				}
+
+			public:
+				Brilliance(float amount) :
+					Amount(amount),
+					Out(1.0)
+				{}
+
+				Brilliance(float amount, float out) :
+					Amount(amount),
+					Out(out)
+				{}
+
+				float Amount;
+				float Out;
+			};
 		}
-
-	public:
-		Brilliance(float amount) :
-			Amount(amount),
-			Out(1.0)
-		{}
-
-		Brilliance(float amount, float out) :
-			Amount(amount),
-			Out(out)
-		{}
-
-		float Amount;
-		float Out;
-	};
+	}
 }
