@@ -25,7 +25,8 @@ namespace povray
 				BottomRight(bottomRight)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Box();
 				obj->bounds[0] = TopLeft.ToVector();
@@ -34,6 +35,8 @@ namespace povray
 				obj->Compute_BBox();
 
 				Shape::RenderDetail(context, obj);
+
+				return obj;
 			}
 		};
 	}

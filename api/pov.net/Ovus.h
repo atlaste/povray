@@ -28,7 +28,8 @@ namespace povray
 				BottomRadius(bottomRadius)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Ovus();
 
@@ -74,7 +75,7 @@ namespace povray
 					replacement->Compute_BBox();
 				}
 
-				Shape::RenderDetail(context, obj);
+				return Shape::RenderDetail(context, obj);
 			}
 		};
 	}

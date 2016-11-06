@@ -25,7 +25,8 @@ namespace povray
 				P1(p1), P2(p2), P3(p3)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Triangle();
 
@@ -38,7 +39,7 @@ namespace povray
 					context->Warning("Degenerate triangle.");
 				}
 
-				Shape::RenderDetail(context, obj);
+				return Shape::RenderDetail(context, obj);
 			}
 		};
 	}

@@ -13,7 +13,7 @@ namespace povray
 		return lhs > rhs ? lhs : rhs;
 	}
 
-	void Shape::RenderDetail(Context^ context, pov::ObjectBase* obj)
+	pov::ObjectBase* Shape::RenderDetail(Context^ context, pov::ObjectBase* obj)
 	{
 		// Add the properties and flags to the object:
 
@@ -96,7 +96,7 @@ namespace povray
 				context->Warning("Cannot invert a patch object.");
 			}
 
-			obj->Invert();
+			obj = obj->Invert();
 		}
 
 		// ... and so on (TODO FIXME parser.cpp:7890 and the rest...)
@@ -186,9 +186,6 @@ namespace povray
 			context->Error("Interior texture requires an exterior texture.");
 		}
 
-		// Scene post-processing and linking:
-
-		SceneObject::PostProcess(context, obj, nullptr);
-		SceneObject::LinkToFrame(context, obj);
+		return obj;
 	}
 }

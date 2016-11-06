@@ -25,7 +25,8 @@ namespace povray
 				Distance(distance)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Plane();
 				obj->Normal_Vector = Normal.ToVector();
@@ -40,7 +41,7 @@ namespace povray
 
 				obj->Compute_BBox();
 
-				Shape::RenderDetail(context, obj);
+				return Shape::RenderDetail(context, obj);
 			}
 		};
 	}

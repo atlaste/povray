@@ -37,7 +37,8 @@ namespace povray
 				MajorRadius(majorRadius), MinorRadius(minorRadius), Spindle(spindleMode)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				bool invert = false;
 				pov::SpindleTorus::SpindleMode spindleMode = pov::SpindleTorus::UnionSpindle;
@@ -80,8 +81,7 @@ namespace povray
 
 					obj->Compute_BBox();
 
-					Shape::RenderDetail(context, obj);
-
+					return Shape::RenderDetail(context, obj);
 				}
 				else
 				{
@@ -92,17 +92,8 @@ namespace povray
 
 					obj->Compute_BBox();
 
-					Shape::RenderDetail(context, obj);
+					return Shape::RenderDetail(context, obj);
 				}
-
-
-				// TODO FIXME: Not sure if this is needed; RenderDetail already handles inversion.
-				//
-				// if (invert)
-				// {
-				// 	obj = obj->Invert();
-				// }
-
 			}
 		};
 	}

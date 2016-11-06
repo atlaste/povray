@@ -56,7 +56,7 @@ namespace povray
 			}
 		};
 
-		void Lemon::Render(Context^ context)
+		pov::ObjectBase* Lemon::Render2(Context^ context)
 		{
 			auto obj = new pov::Lemon();
 			obj->base = Base.ToVector();
@@ -82,8 +82,7 @@ namespace povray
 
 			obj->Compute_BBox();
 
-			Shape::RenderDetail(context, obj);
-
+			return Shape::RenderDetail(context, obj);
 		}
 	}
 }

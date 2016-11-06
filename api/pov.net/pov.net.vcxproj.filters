@@ -251,6 +251,15 @@
     <ClInclude Include="Shape.h">
       <Filter>Model</Filter>
     </ClInclude>
+    <ClInclude Include="Intersection.h">
+      <Filter>Model\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Difference.h">
+      <Filter>Model\Shapes</Filter>
+    </ClInclude>
+    <ClInclude Include="Merge.h">
+      <Filter>Model\Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />

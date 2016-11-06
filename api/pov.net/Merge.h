@@ -14,12 +14,12 @@ namespace povray
 {
 	namespace Shapes
 	{
-		public ref class Union : Shape
+		public ref class Merge : Shape
 		{
 		public:
 			List<Shape^> ^ Objects = gcnew List<Shape^>();
 
-			Union(... array<Shape^>^ args)
+			Merge(... array<Shape^>^ args)
 			{
 				Objects = gcnew List<Shape^>(args);
 			}
@@ -29,10 +29,10 @@ namespace povray
 			{
 				if (Objects->Count < 2)
 				{
-					context->Warning("Should have at least 2 objects in a CSG Union");
+					context->Warning("Should have at least 2 objects in a CSG Merge");
 				}
 
-				auto obj = new pov::CSGUnion();
+				auto obj = new pov::CSGMerge();
 				bool lightSourceUnion = true;
 
 				for each (auto shape in Objects)

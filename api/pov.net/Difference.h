@@ -14,12 +14,12 @@ namespace povray
 {
 	namespace Shapes
 	{
-		public ref class Union : Shape
+		public ref class Difference : Shape
 		{
 		public:
 			List<Shape^> ^ Objects = gcnew List<Shape^>();
 
-			Union(... array<Shape^>^ args)
+			Difference(... array<Shape^>^ args)
 			{
 				Objects = gcnew List<Shape^>(args);
 			}
@@ -29,15 +29,27 @@ namespace povray
 			{
 				if (Objects->Count < 2)
 				{
-					context->Warning("Should have at least 2 objects in a CSG Union");
+					context->Warning("Should have at least 2 objects in a CSG Difference");
 				}
 
-				auto obj = new pov::CSGUnion();
+				auto obj = new pov::CSGIntersection(true);
 				bool lightSourceUnion = true;
+				size_t count = 0;
 
 				for each (auto shape in Objects)
 				{
 					auto child = shape->Render2(context);
+					++count;
+
+					if (child->Type & PATCH_OBJECT)
+					{
+						context->Warning("Patch objects not allowed in difference.");
+					}
+
+					if (count > 1)
+					{
+						child = child->Invert();
+					}
 
 					obj->Type |= (child->Type & CHILDREN_FLAGS);
 					child->Type |= IS_CHILD_OBJECT;
@@ -55,6 +67,8 @@ namespace povray
 				}
 
 				obj->Compute_BBox();
+
+				obj->Type |= CSG_DIFFERENCE_OBJECT;
 
 				return Shape::RenderDetail(context, obj);
 			}

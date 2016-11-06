@@ -29,7 +29,8 @@ namespace povray
 				Constant(constant)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Quadric();
 
@@ -38,7 +39,7 @@ namespace povray
 
 				obj->Compute_BBox(min, max);
 
-				Shape::RenderDetail(context, obj);
+				return Shape::RenderDetail(context, obj);
 			}
 		};
 	}

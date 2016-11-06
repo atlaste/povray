@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "LightSource.h"
 
+// Shapes
 #include "Box.h"
 #include "Cone.h"
 #include "Disc.h"
@@ -17,6 +18,12 @@
 #include "Sphere.h"
 #include "SuperEllipsoid.h"
 #include "Torus.h"
+
+// CSG
+#include "Union.h"
+#include "Intersection.h"
+#include "Difference.h"
+#include "Merge.h"
 
 #include "Color.h"
 #include "Math.h"

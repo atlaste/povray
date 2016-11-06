@@ -33,7 +33,8 @@ namespace povray
 				InnerRadius(innerRadius)
 			{}
 
-			virtual void Render(Context^ context) override;
+		internal:
+			pov::ObjectBase* Render2(Context^ context) override;
 		};
 	}
 }

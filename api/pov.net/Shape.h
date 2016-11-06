@@ -51,7 +51,8 @@ namespace povray
 	public ref class Shape abstract : public SceneObject
 	{
 	internal:
-		void RenderDetail(Context^ context, pov::ObjectBase* obj);
+		pov::ObjectBase* RenderDetail(Context^ context, pov::ObjectBase* obj);
+		virtual pov::ObjectBase* Render2(Context^ context) = 0;
 
 	public:
 		bool UVMapping;
@@ -79,6 +80,14 @@ namespace povray
 			Flags(ShapeFlags::None)
 		{}
 
-		virtual void Render(Context^ context) override = 0;
+		virtual void Render(Context^ context) override
+		{
+			auto obj = Render2(context);
+
+			// Scene post-processing and linking:
+
+			SceneObject::PostProcess(context, obj, nullptr);
+			SceneObject::LinkToFrame(context, obj);
+		}
 	};
 }

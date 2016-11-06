@@ -36,7 +36,8 @@ namespace povray
 				InnerRadius(innerRadius)
 			{}
 
-			virtual void Render(Context^ context) override
+		internal:
+			virtual pov::ObjectBase* Render2(Context^ context) override
 			{
 				auto obj = new pov::Disc();
 				obj->center = Center.ToVector();
@@ -51,7 +52,7 @@ namespace povray
 
 				obj->Compute_Disc();
 
-				Shape::RenderDetail(context, obj);
+				return Shape::RenderDetail(context, obj);
 			}
 		};
 	}
