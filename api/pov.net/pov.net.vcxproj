@@ -198,6 +198,7 @@
     <ClInclude Include="Context.h" />
     <ClInclude Include="Crackle.h" />
     <ClInclude Include="Crand.h" />
+    <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Difference.h" />
     <ClInclude Include="Intersection.h" />
     <ClInclude Include="Merge.h" />

@@ -10,6 +10,7 @@
 // Shapes
 #include "Box.h"
 #include "Cone.h"
+#include "Cylinder.h"
 #include "Disc.h"
 #include "Lemon.h"
 #include "Ovus.h"

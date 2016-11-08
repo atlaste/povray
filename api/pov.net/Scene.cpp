@@ -182,6 +182,24 @@ namespace povray
 
 			// Initialize the ray-tracer:
 			pov::QualityFlags quality(Settings->Quality);
+
+
+			// If we're using AA, we need to do initialize the gamma curve:
+			pov::GammaCurvePtr aaGammaCurve;
+			if (Settings->AAGammaValue > 0)
+			{
+				aaGammaCurve = pov::PowerLawGammaCurve::GetByDecodingGamma(Settings->AAGammaValue);
+			}
+			if (sceneData->workingGamma)
+			{
+				aaGammaCurve = pov::TranscodingGammaCurve::Get(sceneData->workingGamma, aaGammaCurve);
+			}
+
+			// Render the image:
+			int width = Settings->Width;
+			int height = Settings->Height;
+
+			// Rendering
 			pov::TraceThreadData threadData(sceneData);
 
 			CooperateFunctor cooperate;
@@ -199,21 +217,6 @@ namespace povray
 								  cooperate, media, radiosity);
 
 			media.BindTrace(&trace);
-
-			// If we're using AA, we need to do initialize the gamma curve:
-			pov::GammaCurvePtr aaGammaCurve;
-			if (Settings->AAGammaValue > 0)
-			{
-				aaGammaCurve = pov::PowerLawGammaCurve::GetByDecodingGamma(Settings->AAGammaValue);
-			}
-			if (sceneData->workingGamma)
-			{
-				aaGammaCurve = pov::TranscodingGammaCurve::Get(sceneData->workingGamma, aaGammaCurve);
-			}
-
-			// Render the image:
-			int width = Settings->Width;
-			int height = Settings->Height;
 
 			target->Initialize(width, height);
 

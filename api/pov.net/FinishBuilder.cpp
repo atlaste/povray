@@ -19,9 +19,15 @@ namespace povray
 {
 	namespace Materials
 	{
-		FinishBuilder ^FinishBuilder::Ambient(RGB^ color)
+		FinishBuilder ^FinishBuilder::Ambient(RGB color)
 		{
 			Add(gcnew povray::Materials::Finishes::Ambient(color));
+			return this;
+		}
+
+		FinishBuilder ^FinishBuilder::Ambient(float value)
+		{
+			Add(gcnew povray::Materials::Finishes::Ambient(RGB(value, value, value)));
 			return this;
 		}
 
@@ -61,7 +67,7 @@ namespace povray
 			return this;
 		}
 
-		FinishBuilder ^FinishBuilder::Emission(RGB^ color)
+		FinishBuilder ^FinishBuilder::Emission(RGB color)
 		{
 			Add(gcnew povray::Materials::Finishes::Emission(color));
 			return this;
@@ -91,13 +97,13 @@ namespace povray
 			return this;
 		}
 
-		FinishBuilder ^FinishBuilder::Reflection(RGB^ color)
+		FinishBuilder ^FinishBuilder::Reflection(RGB color)
 		{
 			Add(gcnew povray::Materials::Finishes::Reflection(color));
 			return this;
 		}
 
-		FinishBuilder ^FinishBuilder::Reflection(RGB^ minColor, RGB maxColor, float falloff)
+		FinishBuilder ^FinishBuilder::Reflection(RGB minColor, RGB maxColor, float falloff)
 		{
 			Add(gcnew povray::Materials::Finishes::Reflection(minColor, maxColor, falloff));
 			return this;
@@ -121,7 +127,7 @@ namespace povray
 			return this;
 		}
 
-		FinishBuilder ^FinishBuilder::SubSurface(RGB^ translucency, RGB anisotropy)
+		FinishBuilder ^FinishBuilder::SubSurface(RGB translucency, RGB anisotropy)
 		{
 			Add(gcnew povray::Materials::Finishes::SubSurface(translucency, anisotropy));
 			return this;

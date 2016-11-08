@@ -19,9 +19,24 @@ namespace povray
 		public:
 			List<Shape^> ^ Objects = gcnew List<Shape^>();
 
-			Union(... array<Shape^>^ args)
+			Union(... array<SceneObject^>^ args)
 			{
-				Objects = gcnew List<Shape^>(args);
+				Objects = gcnew List<Shape^>();
+				for each (SceneObject^ obj in args)
+				{
+					Add(obj);
+				}
+			}
+
+			void Add(SceneObject^ obj)
+			{
+				auto sh = dynamic_cast<Shape^>(obj);
+				if (!sh)
+				{
+					// TODO FIXME: Actually this is debatable... a sceneobject can probably be rendered to a CSG? Right?
+					throw gcnew ArgumentException("CSG object must be a Shape.");
+				}
+				Objects->Add(sh);
 			}
 
 		internal:

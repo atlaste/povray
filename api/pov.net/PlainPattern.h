@@ -25,7 +25,7 @@ namespace povray
 				{
 					pigment->Type = pov::PLAIN_PATTERN;
 					pigment->pattern = pov::PatternPtr(new pov::PlainPattern());
-					Color->RenderDetail(pigment->colour);
+					Color.RenderDetail(pigment->colour);
 				}
 				virtual void RenderNormalBlendMap(Context^ context, pov::TNORMAL* normal) override
 				{
@@ -38,11 +38,11 @@ namespace povray
 
 
 			public:
-				PlainPattern(RGBFT^ color) :
+				PlainPattern(RGBFT color) :
 					Color(color)
 				{}
 
-				RGBFT^ Color;
+				RGBFT Color;
 			};
 		}
 	}

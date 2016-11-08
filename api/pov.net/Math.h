@@ -7,8 +7,12 @@ namespace povray
 	public value class Vector3
 	{
 	public:
-		Vector3(float x, float y, float z) :
-			X(x), Y(y), Z(z)
+		Vector3(double v) :
+			X((float)v), Y((float)v), Z((float)v)
+		{}
+
+		Vector3(double x, double y, double z) :
+			X((float)x), Y((float)y), Z((float)z)
 		{}
 
 		float X;
@@ -22,8 +26,12 @@ namespace povray
 	public value class Vector2
 	{
 	public:
-		Vector2(float x, float y) :
-			X(x), Y(y)
+		Vector2(double v) :
+			X((float)v), Y((float)v)
+		{}
+		
+		Vector2(double x, double y) :
+			X((float)x), Y((float)y)
 		{}
 
 		float X;

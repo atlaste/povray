@@ -66,6 +66,11 @@ namespace povray
 					if (finish == nullptr) { finish = gcnew FinishBuilder(); }
 					return finish;
 				}
+
+				void set(FinishBuilder^ value)
+				{
+					finish = value;
+				}
 			}
 
 			List<Texture^> ^Materials;

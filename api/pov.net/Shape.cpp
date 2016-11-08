@@ -75,11 +75,11 @@ namespace povray
 
 		RenderTransformations(context, obj);
 
-		if (Surface)
+		if (Texture)
 		{
 			obj->Type |= TEXTURED_OBJECT;
 			obj->Texture = pov::Copy_Textures(context->defaultTexture);
-			Surface->RenderDetail(context, obj->Texture);
+			Texture->RenderDetail(context, obj->Texture);
 		}
 
 		if (InteriorTexture)

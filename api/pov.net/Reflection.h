@@ -16,8 +16,8 @@ namespace povray
 			internal:
 				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
 				{
-					MinColor->RenderDetail(texture->Reflection_Min);
-					MaxColor->RenderDetail(texture->Reflection_Max);
+					MinColor.RenderDetail(texture->Reflection_Min);
+					MaxColor.RenderDetail(texture->Reflection_Max);
 					texture->Reflection_Falloff = float(Falloff);
 					texture->Reflection_Fresnel = Fresnel;
 					texture->Reflect_Exp = float(Exponent);
@@ -27,7 +27,7 @@ namespace povray
 				}
 
 			public:
-				Reflection(RGB^ color) :
+				Reflection(RGB color) :
 					MinColor(color),
 					MaxColor(color),
 					Falloff(1),
@@ -36,7 +36,7 @@ namespace povray
 					Metallic(0.0)
 				{}
 
-				Reflection(RGB^ minColor, RGB maxColor, float falloff) :
+				Reflection(RGB minColor, RGB maxColor, float falloff) :
 					MinColor(minColor),
 					MaxColor(maxColor),
 					Falloff(falloff),
@@ -45,8 +45,8 @@ namespace povray
 					Metallic(0.0)
 				{}
 
-				RGB^ MinColor;
-				RGB^ MaxColor;
+				RGB MinColor;
+				RGB MaxColor;
 				float Falloff;
 				bool Fresnel;
 				float Exponent;

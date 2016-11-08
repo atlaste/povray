@@ -17,10 +17,16 @@ namespace povray
 			dst = tmp2.colour();
 		}
 	public:
-		RGB(float r, float g, float b) :
-			Red(r),
-			Green(g),
-			Blue(b)
+		RGB(double v) :
+			Red((float)v),
+			Green((float)v),
+			Blue((float)v)
+		{}
+
+		RGB(double r, double g, double b) :
+			Red((float)r),
+			Green((float)g),
+			Blue((float)b)
 		{}
 
 		float Red;
@@ -43,18 +49,34 @@ namespace povray
 		}
 
 	public:
-		RGBFT(float r, float g, float b, float f, float t) :
-			Red(r),
-			Green(g),
-			Blue(b),
-			Filter(f),
-			Transparency(t)
+		RGBFT(double r, double g, double b, double f, double t) :
+			Red((float)r),
+			Green((float)g),
+			Blue((float)b),
+			Filter((float)f),
+			Transparency((float)t)
 		{}
 
-		RGBFT(float r, float g, float b) :
-			Red(r),
-			Green(g),
-			Blue(b),
+		RGBFT(double r, double g, double b) :
+			Red((float)r),
+			Green((float)g),
+			Blue((float)b),
+			Filter(0),
+			Transparency(0)
+		{}
+
+		RGBFT(double r, double g, double b, double f) :
+			Red((float)r),
+			Green((float)g),
+			Blue((float)b),
+			Filter(f),
+			Transparency(0)
+		{}
+
+		RGBFT(double v) :
+			Red((float)v),
+			Green((float)v),
+			Blue((float)v),
 			Filter(0),
 			Transparency(0)
 		{}

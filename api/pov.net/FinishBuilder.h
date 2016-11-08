@@ -35,7 +35,9 @@ namespace povray
 		public ref class FinishBuilder : public List<Finish^>
 		{
 		public:
-			FinishBuilder ^Ambient(RGB^ color);
+			FinishBuilder ^Ambient(RGB color);
+
+			FinishBuilder ^Ambient(float value);
 
 			FinishBuilder ^Brilliance(float amount);
 
@@ -49,7 +51,7 @@ namespace povray
 
 			FinishBuilder ^Diffuse(float amount);
 
-			FinishBuilder ^Emission(RGB^ color);
+			FinishBuilder ^Emission(RGB color);
 
 			FinishBuilder ^Irid(float amount, float thickness, float turbulence);
 
@@ -59,9 +61,9 @@ namespace povray
 
 			FinishBuilder ^Phong(float amount);
 
-			FinishBuilder ^Reflection(RGB^ color);
+			FinishBuilder ^Reflection(RGB color);
 
-			FinishBuilder ^Reflection(RGB^ minColor, RGB maxColor, float falloff);
+			FinishBuilder ^Reflection(RGB minColor, RGB maxColor, float falloff);
 
 			FinishBuilder ^Roughness(float amount);
 
@@ -69,7 +71,7 @@ namespace povray
 
 			FinishBuilder ^Specular(float amount);
 
-			FinishBuilder ^SubSurface(RGB^ translucency, RGB anisotropy);
+			FinishBuilder ^SubSurface(RGB translucency, RGB anisotropy);
 		};
 	}
 }

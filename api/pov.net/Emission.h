@@ -16,16 +16,16 @@ namespace povray
 			internal:
 				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
 				{
-					Color->RenderDetail(texture->Emission);
+					Color.RenderDetail(texture->Emission);
 					return FinishAdjustments::EmissionSet;
 				}
 
 			public:
-				Emission(RGB^ color) :
+				Emission(RGB color) :
 					Color(color)
 				{}
 
-				RGB^ Color;
+				RGB Color;
 			};
 		}
 	}

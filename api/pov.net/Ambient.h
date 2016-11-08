@@ -16,16 +16,16 @@ namespace povray
 			internal:
 				virtual FinishAdjustments Render(pov::Finish_Struct* texture) override
 				{
-					Color->RenderDetail(texture->Ambient);
+					Color.RenderDetail(texture->Ambient);
 					return FinishAdjustments::AmbientSet;
 				}
 
 			public:
-				Ambient(RGB^ color) :
+				Ambient(RGB color) :
 					Color(color)
 				{}
 
-				RGB^ Color;
+				RGB Color;
 			};
 		}
 	}

@@ -30,12 +30,14 @@ namespace povray.test
             {
                 var settings = new Settings(renderResult.Width, renderResult.Height);
                 var scene = new Scene(settings);
+
+                /*
                 scene.Add(new Camera(new Vector3(0, 20, -100), new Vector3(0, 0, 0)));
                 scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)));
                 scene.Add(new LightSource(new Vector3(0, 100, 0), new RGB(1, 1, 1)).Rotate(0, 0, 90));
                 scene.Add(new Sphere(new Vector3(0, 0, 0), 10)
                 {
-                    Surface = new Texture()
+                    Texture = new Texture()
                     {
                         Pigment = new Pigment(
                             new Agate(
@@ -48,6 +50,9 @@ namespace povray.test
                 Rotate(2, 60, 124).
                 Translate(0, 10, 0).
                 Scale(2));
+                */
+                TestScene test = new TestScene();
+                test.Render(scene);
 
                 renderer = new ASyncRendering(scene);
                 renderer.Render();

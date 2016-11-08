@@ -60,7 +60,7 @@ namespace povray
 		float Refraction;
 		float Reflection;
 		float PassThrough;
-		Materials::Texture ^Surface;
+		Materials::Texture ^Texture;
 		Materials::Interior ^Interior;
 		Materials::Texture ^InteriorTexture;
 		float PhotonDensity;
@@ -72,7 +72,7 @@ namespace povray
 			Refraction(float::NaN),
 			Reflection(float::NaN),
 			PassThrough(0),
-			Surface(nullptr),
+			Texture(nullptr),
 			Interior(nullptr),
 			InteriorTexture(nullptr),
 			PhotonDensity(0),

@@ -260,6 +260,9 @@
     <ClInclude Include="Merge.h">
       <Filter>Model\Shapes</Filter>
     </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Model\Shapes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />

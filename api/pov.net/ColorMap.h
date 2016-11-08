@@ -40,7 +40,7 @@ namespace povray
 				{}
 
 				float Offset;
-				RGBFT^ Color;
+				RGBFT Color;
 			};
 
 			public ref class ColorMap : public List<ColorMapEntry^>
@@ -54,7 +54,7 @@ namespace povray
 					{
 						pov::ColourBlendMapEntry e;
 						pov::TransColour col;
-						entry->Color->RenderDetail(col);
+						entry->Color.RenderDetail(col);
 						e.value = entry->Offset;
 						e.Vals = col;
 						tempList.push_back(e);
